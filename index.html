@@ -1,13 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المهندس حسن فراس | النفوذ الرقمي</title>
+    <title>المهندس حسن فراس | النفود الرقمي</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-/* (احتفظ بنفس كود CSS الموجود لديك هنا دون تغيير) */
+        :root {
+            --bg-dark: #090d16;
+            --bg-gradient: radial-gradient(circle at top, #1a1813 0%, #090d16 100%);
+            --accent-glow: #f1c40f; /* أصفر نيون ذهبي مضيء */
+            --accent-secondary: #e67e22;
+            --text-main: #f8fafc;
+            --text-muted: #64748b;
+            --glass-bg: rgba(22, 20, 15, 0.6);
+            --glass-border: rgba(255, 241, 118, 0.05);
+        }
+
+        body {
+            font-family: 'Almarai', sans-serif; /* تطبيق خط Almarai كخط أساسي للموقع */
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- شاشة الترحيب السينمائية (Splash Screen) --- */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0907;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .splash-avatar-glow {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        .splash-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 40px;
+            object-fit: cover;
+            border: 2px solid rgba(241, 196, 15, 0.4);
+            transform: scale(0.3);
+            opacity: 0;
+            animation: scaleUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+        }
+
+        .splash-name {
+            font-size: 34px;
+            font-weight: 800; /* وزن عريض للاسم في شاشة الترحيب */
+            margin: 25px 0 5px 0;
+            background: linear-gradient(to left, #fff, var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            letter-spacing: 1px;
+            animation: textReveal 1s ease-out 1.2s forwards;
+        }
+
+        .splash-sub {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: textReveal 1s ease-out 1.8s forwards;
+        }
+
+        @keyframes scaleUp {
+            to { transform: scale(1); opacity: 1; box-shadow: 0 0 35px rgba(241, 196, 15, 0.25); }
+        }
+        @keyframes textReveal {
+            from { transform: translateY(15px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(241, 196, 15, 0.1)); }
+            50% { transform: scale(1.02); filter: drop-shadow(0 0 30px rgba(241, 196, 15, 0.35)); }
+        }
+
+        .splash-screen.fade-out {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+        }
+
+        /* --- الموقع الرئيسي (Main Content) --- */
+        .main-content {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 20px;
+            text-align: center;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .main-content.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .profile-container {
+            margin-bottom: 35px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 35px;
+            object-fit: cover;
+            border: 2px solid var(--glass-border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .profile-name {
+            font-size: 28px;
+            font-weight: 700; /* وزن عريض للاسم الرئيسي */
+            margin: 18px 0 5px 0;
+        }
+
+        .profile-tag {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--accent-glow);
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-align: right;
+            margin: 25px 12px 12px 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 18px 24px;
+            margin-bottom: 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 15px;
+            font-weight: 400;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .btn-link .icon-text {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-link i {
+            font-size: 20px;
+            color: #ffffff; 
+            background: none;
+            -webkit-text-fill-color: initial;
+            transition: all 0.3s ease;
+        }
+
+        .btn-link .arrow-icon {
+            font-size: 12px;
+            color: var(--text-muted);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-link:hover {
+            border-color: rgba(241, 196, 15, 0.3);
+            background: rgba(241, 196, 15, 0.04);
+            box-shadow: 0 10px 25px rgba(241, 196, 15, 0.08), inset 0 0 12px rgba(255,255,255,0.01);
+            transform: translateY(-3px) scale(1.01);
+        }
+
+        .btn-link:hover i {
+            background: linear-gradient(135deg, #fff, var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-link:hover .arrow-icon {
+            color: var(--accent-glow);
+            transform: translateX(-5px);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--glass-border);
+            margin: 40px 0 20px 0;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 300; /* وزن خفيف للحقوق أسفل الصفحة */
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-avatar-glow">
+            <img src="IMG_20260520_191313_447.jpg" alt="حسن فراس" class="splash-img">
+        </div>
+        <h1 class="splash-name">حسن فراس</h1>
+        <div class="splash-sub">مهندس اجهزة طبية وصانع محتوى</div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        
+        <div class="profile-container">
+            <img src="IMG_20260520_191313_447.jpg" alt="المهندس حسن فراس" class="profile-img">
+            <h2 class="profile-name">حسن فراس</h2>
+            <p class="profile-tag">مهندس اجهزة طبية وصانع محتوى</p>
+        </div>
+
+        <div class="section-title">الاعلان والتعاون التجاري</div>
+        <a href="https://wa.me/9647835552957" target="_blank" class="btn-link">
+            <div class="icon-text">
+                <i class="fab fa-whatsapp"></i>
+                <span> واتساب</span>
+            </div>
+            <i class="fas fa-chevron-left arrow-icon"></i>
+        </a>
+
+        <div class="section-title">موقع التواصل الاجتماعي</div>
+        
+        <a href="https://instagram.com/z29u" target="_blank" class="btn-link">
+            <div class="icon-text">
+                <i class="fab fa-instagram"></i>
+                <span>انستغرام - Instagram</span>
+            </div>
+            <i class="fas fa-chevron-left arrow-icon"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@1_6c?_r=1&_t=ZS-96WUKMpVIUG" target="_blank" class="btn-link">
+            <div class="icon-text">
+                <i class="fab fa-tiktok"></i>
+                <span> تيك توك - TikTok </span>
+            </div>
+            <i class="fas fa-chevron-left arrow-icon"></i>
+        </a>
+
+        <hr>
+
+        <div class="footer-text">جميع الحقوق محفوظة لدى حسن فراس</div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            var splashScreen = document.getElementById('splashScreen');
+            var mainContent = document.getElementById('mainContent');
+
+            splashScreen.classList.add('fade-out');
+            
+            setTimeout(function() {
+                splashScreen.style.display = 'none';
+                mainContent.classList.add('show');
+            }, 400); 
+
+        }, 6000);
+    </script>
+
+</body>
+</html>
