@@ -8,10 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- الخط الأساسي للموقع -->
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     
-    <!-- مجموعة الخطوط الجديدة التي أرسلتها -->
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Badeen+Display&family=Cairo+Play:wght@200..1000&family=Lalezar&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,7 +18,7 @@
         :root {
             --bg-dark: #090d16;
             --bg-gradient: radial-gradient(circle at top, #1a1813 0%, #090d16 100%);
-            --accent-glow: #f1c40f; /* أصفر نيون ذهبي مضيء */
+            --accent-glow: #f1c40f; /* أصفر نيون ذهبي مضيء - هذا هو اللون المطلوب */
             --accent-secondary: #e67e22;
             --text-main: #f8fafc;
             --text-muted: #64748b;
@@ -29,7 +27,7 @@
         }
 
         body {
-            font-family: 'Almarai', sans-serif; /* تطبيق خط Almarai كخط أساسي للموقع */
+            font-family: 'Almarai', sans-serif;
             background: var(--bg-gradient);
             color: var(--text-main);
             margin: 0;
@@ -78,13 +76,16 @@
         }
 
         .splash-name {
-            font-family: 'Lalezar', sans-serif; /* تطبيق الخط الجديد هنا */
+            font-family: 'Lalezar', sans-serif; /* الخط المحدد للاسم */
             font-size: 34px;
             font-weight: 800;
             margin: 25px 0 5px 0;
-            background: linear-gradient(to left, #fff, var(--accent-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            
+            /* --- التعديل هنا: تطبيق اللون الذهبي المضيء --- */
+            color: var(--accent-glow); 
+            /* تم إزالة الخلفية المتدرجة والـ clipping ليكون اللون سادة ومضيء */
+            
+            text-shadow: 0 0 15px rgba(241, 196, 15, 0.5); /* إضافة توهج خلف النص */
             opacity: 0;
             letter-spacing: 1px;
             animation: textReveal 1s ease-out 1.2s forwards;
@@ -148,16 +149,20 @@
         }
 
         .profile-name {
-            font-family: 'Lalezar', sans-serif; /* تطبيق الخط الجديد هنا أيضاً */
+            font-family: 'Lalezar', sans-serif; /* الخط المحدد للاسم */
             font-size: 28px;
             font-weight: 700; 
             margin: 18px 0 5px 0;
+            
+            /* --- التعديل هنا: تطبيق اللون الذهبي المضيء --- */
+            color: var(--accent-glow);
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.3); /* توهج بسيط */
         }
 
         .profile-tag {
             font-size: 13px;
             font-weight: 400;
-            color: var(--accent-glow);
+            color: var(--text-muted); /* إرجاع هذا للون الباهت ليتناسق مع التصميم الجديد */
             letter-spacing: 0.5px;
         }
 
@@ -245,9 +250,9 @@
 
     <div class="splash-screen" id="splashScreen">
         <div class="splash-avatar-glow">
-            <img src="IMG_20260520_191313_447.jpg" alt="المهندس حسن فراس" class="splash-img">
+            <img src="IMG_20260520_191313_447.jpg" alt="حسن فراس" class="splash-img">
         </div>
-        <h1 class="splash-name"> المهندس حسن فراس</h1>
+        <h1 class="splash-name">المهندس حسن فراس</h1>
         <div class="splash-sub">مهندس اجهزة طبية وصانع محتوى</div>
     </div>
 
@@ -292,6 +297,7 @@
     </div>
 
     <script>
+        // الابقاء على السكريبت كما هو لادارة شاشة الترحيب
         setTimeout(function() {
             var splashScreen = document.getElementById('splashScreen');
             var mainContent = document.getElementById('mainContent');
