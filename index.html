@@ -18,7 +18,7 @@
         :root {
             --bg-dark: #090d16;
             --bg-gradient: radial-gradient(circle at top, #1a1813 0%, #090d16 100%);
-            --accent-glow: #f1c40f; /* أصفر نيون ذهبي مضيء - هذا هو اللون المطلوب */
+            --accent-glow: #f1c40f; /* أصفر نيون ذهبي مضيء */
             --accent-secondary: #e67e22;
             --text-main: #f8fafc;
             --text-muted: #64748b;
@@ -76,16 +76,13 @@
         }
 
         .splash-name {
-            font-family: 'Lalezar', sans-serif; /* الخط المحدد للاسم */
+            font-family: 'Lalezar', sans-serif;
             font-size: 34px;
             font-weight: 800;
-            margin: 25px 0 5px 0;
-            
-            /* --- التعديل هنا: تطبيق اللون الذهبي المضيء --- */
+            /* تم تعديل الهامش السفلي هنا إلى 10px */
+            margin: 25px 0 10px 0;
             color: var(--accent-glow); 
-            /* تم إزالة الخلفية المتدرجة والـ clipping ليكون اللون سادة ومضيء */
-            
-            text-shadow: 0 0 15px rgba(241, 196, 15, 0.5); /* إضافة توهج خلف النص */
+            text-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
             opacity: 0;
             letter-spacing: 1px;
             animation: textReveal 1s ease-out 1.2s forwards;
@@ -96,6 +93,7 @@
             font-weight: 400;
             color: var(--text-muted);
             letter-spacing: 1px;
+            margin: 0; /* تصفير الهوامش لضمان دقة المسافة */
             opacity: 0;
             animation: textReveal 1s ease-out 1.8s forwards;
         }
@@ -149,21 +147,21 @@
         }
 
         .profile-name {
-            font-family: 'Lalezar', sans-serif; /* الخط المحدد للاسم */
+            font-family: 'Lalezar', sans-serif;
             font-size: 28px;
             font-weight: 700; 
-            margin: 18px 0 5px 0;
-            
-            /* --- التعديل هنا: تطبيق اللون الذهبي المضيء --- */
+            /* تم تعديل الهامش السفلي هنا أيضاً إلى 10px ليتطابق مع شاشة الترحيب */
+            margin: 18px 0 10px 0;
             color: var(--accent-glow);
-            text-shadow: 0 0 10px rgba(241, 196, 15, 0.3); /* توهج بسيط */
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
         }
 
         .profile-tag {
             font-size: 13px;
             font-weight: 400;
-            color: var(--text-muted); /* إرجاع هذا للون الباهت ليتناسق مع التصميم الجديد */
+            color: var(--text-muted);
             letter-spacing: 0.5px;
+            margin: 0; /* إلغاء هوامش المتصفح التلقائية لوسم الـ p */
         }
 
         .section-title {
@@ -172,145 +170,4 @@
             font-weight: 700;
             text-align: right;
             margin: 25px 12px 12px 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .btn-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 18px 24px;
-            margin-bottom: 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 15px;
-            font-weight: 400;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .btn-link .icon-text {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .btn-link i {
-            font-size: 20px;
-            color: #ffffff; 
-            background: none;
-            -webkit-text-fill-color: initial;
-            transition: all 0.3s ease;
-        }
-
-        .btn-link .arrow-icon {
-            font-size: 12px;
-            color: var(--text-muted);
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .btn-link:hover {
-            border-color: rgba(241, 196, 15, 0.3);
-            background: rgba(241, 196, 15, 0.04);
-            box-shadow: 0 10px 25px rgba(241, 196, 15, 0.08), inset 0 0 12px rgba(255,255,255,0.01);
-            transform: translateY(-3px) scale(1.01);
-        }
-
-        .btn-link:hover i {
-            background: linear-gradient(135deg, #fff, var(--accent-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .btn-link:hover .arrow-icon {
-            color: var(--accent-glow);
-            transform: translateX(-5px);
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid var(--glass-border);
-            margin: 40px 0 20px 0;
-        }
-
-        .footer-text {
-            color: var(--text-muted);
-            font-size: 11px;
-            font-weight: 300; 
-            letter-spacing: 0.5px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="splash-screen" id="splashScreen">
-        <div class="splash-avatar-glow">
-            <img src="IMG_20260520_191313_447.jpg" alt="حسن فراس" class="splash-img">
-        </div>
-        <h1 class="splash-name">المهندس حسن فراس</h1>
-        <div class="splash-sub">مهندس اجهزة طبية وصانع محتوى</div>
-    </div>
-
-    <div class="main-content" id="mainContent">
-        
-        <div class="profile-container">
-            <img src="IMG_20260520_191313_447.jpg" alt="المهندس حسن فراس" class="profile-img">
-            <h2 class="profile-name">المهندس حسن فراس</h2>
-            <p class="profile-tag">مهندس اجهزة طبية وصانع محتوى</p>
-        </div>
-
-        <div class="section-title">للأعلانات والتعاونات التجارية</div>
-        <a href="https://wa.me/9647835552957" target="_blank" class="btn-link">
-            <div class="icon-text">
-                <i class="fab fa-whatsapp"></i>
-                <span> واتساب</span>
-            </div>
-            <i class="fas fa-chevron-left arrow-icon"></i>
-        </a>
-
-        <div class="section-title">مواقع التواصل الأجتماعي</div>
-        
-        <a href="https://instagram.com/z29u" target="_blank" class="btn-link">
-            <div class="icon-text">
-                <i class="fab fa-instagram"></i>
-                <span>انستغرام - Instagram</span>
-            </div>
-            <i class="fas fa-chevron-left arrow-icon"></i>
-        </a>
-
-        <a href="https://www.tiktok.com/@1_6c?_r=1&_t=ZS-96WUKMpVIUG" target="_blank" class="btn-link">
-            <div class="icon-text">
-                <i class="fab fa-tiktok"></i>
-                <span> تيك توك - TikTok </span>
-            </div>
-            <i class="fas fa-chevron-left arrow-icon"></i>
-        </a>
-
-        <hr>
-
-        <div class="footer-text">جميع الحقوق محفوظة لدى المهندس الطبي حسن فراس</div>
-    </div>
-
-    <script>
-        // الابقاء على السكريبت كما هو لادارة شاشة الترحيب
-        setTimeout(function() {
-            var splashScreen = document.getElementById('splashScreen');
-            var mainContent = document.getElementById('mainContent');
-
-            splashScreen.classList.add('fade-out');
-            
-            setTimeout(function() {
-                splashScreen.style.display = 'none';
-                mainContent.classList.add('show');
-            }, 400); 
-
-        }, 6000);
-    </script>
-
-</body>
-</html>
+            letter-
