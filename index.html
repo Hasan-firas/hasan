@@ -1,331 +1,524 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حسن فراس | Hassan Firas - Linktree & Portfolio</title>
-
-    <!-- Google Fonts: Cairo -->
+    <title>حسن فراس | Hassan Firas</title>
+    <!-- خط Cairo من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Cairo', 'sans-serif'],
-                    },
-                    colors: {
-                        mustard: '#FFDE4D',
-                        'mustard-dark': '#e6c73e',
-                        darkbg: '#0a0a0c',
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 5s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-8px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0c;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #22222a;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FFDE4D;
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --border-color: rgba(255, 222, 77, 0.2);
+            --primary-accent: #FFDE4D;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --whatsapp-color: #25D366;
+            --instagram-color: #E1306C;
+            --tiktok-color: #00f2fe;
         }
 
-        /* Glassmorphism Styles */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: #FFDE4D;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 222, 77, 0.15);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .glass-stat {
-            background: rgba(255, 222, 77, 0.03);
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(255, 222, 77, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(0, 242, 254, 0.04) 0%, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* Profile Section */
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .avatar-ring {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--primary-accent), #ff9900);
+            box-shadow: 0 0 25px rgba(255, 222, 77, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            /* تعديل ضبط قياسات الصورة لتمركز الوجه */
+            object-fit: cover;
+            object-position: center 20%;
+            background-color: #1a1a1a;
+            border: 2px solid var(--bg-color);
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 4px;
+            right: 8px;
+            background: var(--primary-accent);
+            color: #000;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            border: 2px solid var(--bg-color);
+        }
+
+        .name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .badge-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 222, 77, 0.1);
+            border: 1px solid rgba(255, 222, 77, 0.3);
+            color: var(--primary-accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .bio {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 90%;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            width: 100%;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 222, 77, 0.15);
+            border-radius: 16px;
+            padding: 16px 10px;
+            text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        /* Ambient Glow Background */
-        .ambient-glow-1 {
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            background: #FFDE4D;
-            border-radius: 50%;
-            filter: blur(140px);
-            opacity: 0.12;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .ambient-glow-2 {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: #ff9900;
-            border-radius: 50%;
-            filter: blur(130px);
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 0;
+        .stat-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-accent);
         }
 
-        /* Notification Toast */
-        #toast {
-            transition: transform 0.3s ease, opacity 0.3s ease;
+        .stat-icon {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .stat-icon.insta { color: var(--instagram-color); }
+        .stat-icon.tiktok { color: var(--tiktok-color); }
+        .stat-icon.collab { color: var(--primary-accent); }
+
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Section Title */
+        .section-title {
+            width: 100%;
+            text-align: right;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: var(--primary-accent);
+        }
+
+        /* Commercial / WhatsApp Card */
+        .ad-card {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(22, 27, 34, 0.8));
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            backdrop-filter: blur(12px);
+        }
+
+        .ad-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ad-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ad-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(37, 211, 102, 0.2);
+            color: var(--whatsapp-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .ad-text h3 {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .ad-text p {
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .ad-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-whatsapp {
+            flex: 2;
+            background: var(--whatsapp-color);
+            color: #000;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn-whatsapp:hover {
+            opacity: 0.9;
+        }
+
+        .btn-copy {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Links List */
+        .links-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-item {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #fff;
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+        }
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-accent);
+            background: rgba(30, 36, 46, 0.85);
+        }
+
+        .link-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .link-icon.insta { color: var(--instagram-color); }
+        .link-icon.tiktok { color: var(--tiktok-color); }
+
+        .link-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .link-handle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .link-arrow {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-accent);
+            color: #000;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            transition: bottom 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
         }
     </style>
 </head>
-<body class="bg-[#0a0a0c] text-gray-100 font-sans min-h-screen relative overflow-x-hidden selection:bg-mustard selection:text-black">
+<body>
 
-    <!-- Ambient Glowing Background Bubbles -->
-    <div class="ambient-glow-1 -top-20 -right-20"></div>
-    <div class="ambient-glow-2 top-1/2 -left-20"></div>
-    <div class="ambient-glow-1 -bottom-20 right-1/4"></div>
+    <div class="container">
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-mustard text-black font-bold px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-2 text-sm opacity-0 pointer-events-none transform translate-y-4">
-        <i class="fa-solid fa-circle-check text-base"></i>
-        <span id="toastMessage">تم نسخ الرقم بنجاح!</span>
-    </div>
-
-    <!-- Main Container -->
-    <div class="relative z-10 max-w-2xl mx-auto px-4 py-10 sm:px-6">
-
-        <!-- HEADER / PROFILE SECTION -->
-        <header class="text-center flex flex-col items-center mb-8 animate-float">
-            
-            <!-- Top Actions (Share Button) -->
-            <div class="w-full flex justify-end mb-4">
-                <button onclick="sharePage()" class="glass-card w-10 h-10 rounded-full flex items-center justify-center text-gray-300 hover:text-mustard hover:scale-110 transition-all" title="مشاركة الصفحة">
-                    <i class="fa-solid fa-share-nodes text-sm"></i>
-                </button>
-            </div>
-
-            <!-- Profile Image Container with Mustard Glow -->
-            <div class="relative mb-5">
-                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-amber-500 via-mustard to-yellow-200 shadow-[0_0_25px_rgba(255,222,77,0.3)]">
-                    <!-- Default avatar image with fallback -->
+        <!-- Profile Section -->
+        <div class="profile-card">
+            <div class="avatar-wrapper">
+                <div class="avatar-ring">
+                    <!-- تم وضع رابط الصورة المباشر الجديد مع ضبط القياسات -->
                     <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/01feaff920786e694c66829b62327d84643171dd/aa.JPEG" alt="حسن فراس" class="profile-img">
                 </div>
-                <!-- Verified Badge -->
-                <div class="absolute bottom-1 left-1 bg-mustard text-black w-7 h-7 rounded-full flex items-center justify-center text-xs shadow-lg font-bold" title="مُوثّق">
+                <div class="verified-badge">
                     <i class="fa-solid fa-check"></i>
                 </div>
             </div>
-
-            <!-- Name & Title -->
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2 text-white">
-                حسن فراس <span class="text-mustard text-2xl font-semibold">(Hassan Firas)</span>
-            </h1>
             
-            <!-- Badge Subtitle -->
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mustard/10 border border-mustard/30 text-mustard text-xs sm:text-sm font-bold mb-3">
-                <i class="fa-solid fa-microscope text-xs"></i>
-                <span>مهندس تقنيات أجهزة طبية | صانع محتوى تعليمي وتقني</span>
+            <h1 class="name">حسن فراس <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 400;">(Hassan Firas)</span></h1>
+            
+            <div class="badge-title">
+                <i class="fa-solid fa-microscope"></i>
+                مهندس تقنيات أجهزة طبية | صانع محتوى تعليمي وتقني
             </div>
 
-            <p class="text-gray-400 text-xs sm:text-sm max-w-md leading-relaxed">
+            <p class="bio">
                 مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.
             </p>
-        </header>
+        </div>
 
-        <!-- STATS SECTION -->
-        <section class="mb-8">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 text-right mb-3 px-1">
-                <i class="fa-solid fa-chart-line text-mustard ml-1.5"></i> الإحصائيات والأرقام
-            </h2>
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon insta"><i class="fa-brands fa-instagram"></i></div>
+                <div class="stat-number">1M+</div>
+                <div class="stat-label">زيارات الإنستغرام</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon tiktok"><i class="fa-brands fa-tiktok"></i></div>
+                <div class="stat-number">9M+</div>
+                <div class="stat-label">زيارات التيك توك</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon collab"><i class="fa-solid fa-handshake"></i></div>
+                <div class="stat-number">5+</div>
+                <div class="stat-label">تعاونات تجارية</div>
+            </div>
+        </div>
 
-            <div class="grid grid-cols-3 gap-2.5 sm:gap-4">
-                <!-- Stat Card 1 -->
-                <div class="glass-stat p-3 sm:p-4 rounded-2xl text-center flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300">
-                    <div class="w-9 h-9 rounded-xl bg-pink-500/10 text-pink-400 border border-pink-500/20 flex items-center justify-center text-lg mb-2">
+        <!-- Commercial / Ad Section -->
+        <div class="section-title">
+            <i class="fa-solid fa-briefcase"></i> الإعلانات والتعاون التجاري
+        </div>
+
+        <div class="ad-card">
+            <div class="ad-header">
+                <div class="ad-info">
+                    <div class="ad-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="ad-text">
+                        <h3>مباشر واتساب للأعمال</h3>
+                        <p>+964 783 555 2957</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ad-actions">
+                <a href="https://wa.me/9647835552957" target="_blank" class="btn-whatsapp">
+                    <i class="fa-paper-plane"></i> مراسلة
+                </a>
+                <button class="btn-copy" onclick="copyNumber('+9647835552957')">
+                    <i class="fa-regular fa-copy"></i> نسخ
+                </button>
+            </div>
+        </div>
+
+        <!-- Social Links Section -->
+        <div class="section-title">
+            <i class="fa-solid fa-globe"></i> حساباتي الرسمية
+        </div>
+
+        <div class="links-list">
+            <!-- Instagram -->
+            <a href="https://instagram.com/z29u" target="_blank" class="link-item">
+                <div class="link-left">
+                    <div class="link-icon insta">
                         <i class="fa-brands fa-instagram"></i>
                     </div>
-                    <span class="text-xl sm:text-2xl font-black text-white tracking-tight">+1M</span>
-                    <span class="text-[10px] sm:text-xs text-gray-400 font-semibold mt-0.5">زيارات الإنستغرام</span>
+                    <div>
+                        <div class="link-title">حساب الإنستغرام</div>
+                        <div class="link-handle">@z29u</div>
+                    </div>
                 </div>
+                <div class="link-arrow">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+            </a>
 
-                <!-- Stat Card 2 -->
-                <div class="glass-stat p-3 sm:p-4 rounded-2xl text-center flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300">
-                    <div class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center text-lg mb-2">
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@1_6c" target="_blank" class="link-item">
+                <div class="link-left">
+                    <div class="link-icon tiktok">
                         <i class="fa-brands fa-tiktok"></i>
                     </div>
-                    <span class="text-xl sm:text-2xl font-black text-white tracking-tight">+9M</span>
-                    <span class="text-[10px] sm:text-xs text-gray-400 font-semibold mt-0.5">زيارات التيك توك</span>
-                </div>
-
-                <!-- Stat Card 3 -->
-                <div class="glass-stat p-3 sm:p-4 rounded-2xl text-center flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300">
-                    <div class="w-9 h-9 rounded-xl bg-mustard/10 text-mustard border border-mustard/20 flex items-center justify-center text-lg mb-2">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                    <span class="text-xl sm:text-2xl font-black text-white tracking-tight">+5</span>
-                    <span class="text-[10px] sm:text-xs text-gray-400 font-semibold mt-0.5">تعاونات تجارية</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- BUSINESS & CONTACT SECTION (WHATSAPP) -->
-        <section class="mb-8">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 text-right mb-3 px-1">
-                <i class="fa-solid fa-briefcase text-mustard ml-1.5"></i> الإعلانات والتعاون التجاري
-            </h2>
-
-            <div class="glass-card p-5 rounded-2xl border-l-4 border-l-emerald-500 relative overflow-hidden">
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-2xl shrink-0">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div class="text-right">
-                            <h3 class="font-bold text-white text-sm sm:text-base">مباشر واتساب للأعمال</h3>
-                            <p class="text-xs text-gray-400 dir-ltr text-right font-mono mt-0.5">+964 783 555 2957</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <a href="https://wa.me/9647835552957" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
-                            <i class="fa-solid fa-paper-plane"></i> مراسلة
-                        </a>
-                        <button onclick="copyToClipboard('+9647835552957')" class="px-3.5 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-gray-300 text-xs flex items-center justify-center gap-1.5 transition-all" title="نسخ الرقم">
-                            <i class="fa-regular fa-copy"></i> نسخ
-                        </button>
+                    <div>
+                        <div class="link-title">حساب التيك توك</div>
+                        <div class="link-handle">@1_6c</div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- SOCIAL LINKS SECTION -->
-        <section class="space-y-3.5 mb-10">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 text-right mb-3 px-1">
-                <i class="fa-solid fa-globe text-mustard ml-1.5"></i> حساباتي الرسمية
-            </h2>
-
-            <!-- Instagram Link Card -->
-            <a href="https://instagram.com/z29u" target="_blank" class="glass-card flex items-center p-4 rounded-2xl group relative overflow-hidden">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600/20 via-pink-600/20 to-amber-500/20 text-pink-400 border border-pink-500/30 flex items-center justify-center text-2xl ml-4 group-hover:scale-110 transition-transform">
-                    <i class="fa-brands fa-instagram"></i>
+                <div class="link-arrow">
+                    <i class="fa-solid fa-chevron-left"></i>
                 </div>
-                <div class="flex-1 text-right">
-                    <div class="flex items-center gap-2">
-                        <h3 class="font-bold text-white group-hover:text-mustard transition-colors text-sm sm:text-base">حساب الانستغرام</h3>
-                        <span class="text-[10px] bg-pink-500/10 text-pink-400 border border-pink-500/20 px-2 py-0.5 rounded-full font-mono">@z29u</span>
-                    </div>
-                    <p class="text-xs text-gray-400 mt-0.5">تغطيات يومية، محتوى تقني وطبي مميز (+1M زيارة)</p>
-                </div>
-                <i class="fa-solid fa-chevron-left text-gray-500 group-hover:text-mustard group-hover:-translate-x-1 transition-all text-xs"></i>
             </a>
+        </div>
 
-            <!-- TikTok Link Card -->
-            <a href="https://www.tiktok.com/@1_6c" target="_blank" class="glass-card flex items-center p-4 rounded-2xl group relative overflow-hidden">
-                <div class="w-12 h-12 rounded-xl bg-zinc-800 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-2xl ml-4 group-hover:scale-110 transition-transform">
-                    <i class="fa-brands fa-tiktok"></i>
-                </div>
-                <div class="flex-1 text-right">
-                    <div class="flex items-center gap-2">
-                        <h3 class="font-bold text-white group-hover:text-mustard transition-colors text-sm sm:text-base">حساب التيك توك</h3>
-                        <span class="text-[10px] bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2 py-0.5 rounded-full font-mono">@1_6c</span>
-                    </div>
-                    <p class="text-xs text-gray-400 mt-0.5">مقاطع فيديو قصيرة وشروحات تفاعلية (+9M زيارة)</p>
-                </div>
-                <i class="fa-solid fa-chevron-left text-gray-500 group-hover:text-mustard group-hover:-translate-x-1 transition-all text-xs"></i>
-            </a>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="text-center text-xs text-gray-500 border-t border-zinc-800/80 pt-6">
-            <p>جميع الحقوق محفوظة © <span id="currentYear"></span> <span class="text-mustard font-semibold">حسن فراس</span></p>
-            <p class="mt-1 text-gray-600">جاهز للرفع والتفعيل المباشر على GitHub Pages</p>
+        <!-- Footer -->
+        <footer>
+            © Hassan Firas | جميع الحقوق محفوظة
         </footer>
+
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- Toast Component -->
+    <div id="toast" class="toast">تم نسخ الرقم بنجاح!</div>
+
     <script>
-        // Automatic Year Update
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // COPY TO CLIPBOARD FUNCTION
-        function copyToClipboard(text) {
-            // Using textarea fallback for maximum compatibility in iframe/GitHub pages
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            
-            try {
-                document.execCommand('copy');
-                showToast("تم نسخ الرقم بنجاح!");
-            } catch (err) {
-                showToast("تعذر النسخ تلقائياً");
-            } finally {
-                document.body.removeChild(textarea);
-            }
-        }
-
-        // SHOW TOAST NOTIFICATION
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toastMessage');
-            
-            toastMsg.textContent = message;
-            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-            toast.classList.add('opacity-100', 'translate-y-0');
-
-            setTimeout(() => {
-                toast.classList.remove('opacity-100', 'translate-y-0');
-                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-            }, 3000);
-        }
-
-        // SHARE PAGE FUNCTION
-        function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'حسن فراس | Linktree & Portfolio',
-                    text: 'تصفح حسابات التواصل الاجتماعي والتعاون التجاري للera المهندس حسن فراس',
-                    url: window.location.href,
-                }).catch(() => {});
-            } else {
-                copyToClipboard(window.location.href);
-                showToast("تم نسخ رابط الصفحة بنجاح!");
-            }
+        function copyNumber(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
         }
     </script>
 </body>
