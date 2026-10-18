@@ -1,313 +1,332 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المهندس الطبي حسن فراس</title>
-    
+    <title>حسن فراس | Hassan Firas - Linktree & Portfolio</title>
+
+    <!-- Google Fonts: Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Badeen+Display&family=Cairo+Play:wght@200..1000&family=Lalezar&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        mustard: '#FFDE4D',
+                        'mustard-dark': '#e6c73e',
+                        darkbg: '#0a0a0c',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            --bg-dark: #090d16;
-            --bg-gradient: radial-gradient(circle at top, #1a1813 0%, #090d16 100%);
-            --accent-glow: #f1c40f; /* أصفر نيون ذهبي مضيء */
-            --accent-secondary: #e67e22;
-            --text-main: #f8fafc;
-            --text-muted: #64748b;
-            --glass-bg: rgba(22, 20, 15, 0.6);
-            --glass-border: rgba(255, 241, 118, 0.05);
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #22222a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFDE4D;
         }
 
-        body {
-            font-family: 'Almarai', sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: #FFDE4D;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 222, 77, 0.15);
         }
 
-        /* --- شاشة الترحيب السينمائية (Splash Screen) --- */
-        .splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0907;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .splash-avatar-glow {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: pulseGlow 3s infinite ease-in-out;
-        }
-
-        .splash-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 40px;
-            object-fit: cover;
-            border: 2px solid rgba(241, 196, 15, 0.4);
-            transform: scale(0.3);
-            opacity: 0;
-            animation: scaleUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
-        }
-
-        .splash-name {
-            font-family: 'Lalezar', sans-serif;
-            font-size: 34px;
-            font-weight: 800;
-            /* تم تعديل الهامش السفلي هنا إلى 10px */
-            margin: 25px 0 10px 0;
-            color: var(--accent-glow); 
-            text-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
-            opacity: 0;
-            letter-spacing: 1px;
-            animation: textReveal 1s ease-out 1.2s forwards;
-        }
-
-        .splash-sub {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            margin: 0; /* تصفير الهوامش لضمان دقة المسافة */
-            opacity: 0;
-            animation: textReveal 1s ease-out 1.8s forwards;
-        }
-
-        @keyframes scaleUp {
-            to { transform: scale(1); opacity: 1; box-shadow: 0 0 35px rgba(241, 196, 15, 0.25); }
-        }
-        @keyframes textReveal {
-            from { transform: translateY(15px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(241, 196, 15, 0.1)); }
-            50% { transform: scale(1.02); filter: drop-shadow(0 0 30px rgba(241, 196, 15, 0.35)); }
-        }
-
-        .splash-screen.fade-out {
-            opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            pointer-events: none;
-        }
-
-        /* --- الموقع الرئيسي (Main Content) --- */
-        .main-content {
-            width: 100%;
-            max-width: 420px;
-            padding: 40px 20px;
-            text-align: center;
-            box-sizing: border-box;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .main-content.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .profile-container {
-            margin-bottom: 35px;
-        }
-
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 35px;
-            object-fit: cover;
-            border: 2px solid var(--glass-border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .profile-name {
-            font-family: 'Lalezar', sans-serif;
-            font-size: 28px;
-            font-weight: 700; 
-            /* تم تعديل الهامش السفلي هنا أيضاً إلى 10px ليتطابق مع شاشة الترحيب */
-            margin: 18px 0 10px 0;
-            color: var(--accent-glow);
-            text-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
-        }
-
-        .profile-tag {
-            font-size: 13px;
-            font-weight: 400;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-            margin: 0; /* إلغاء هوامش المتصفح التلقائية لوسم الـ p */
-        }
-
-        .section-title {
-            color: var(--text-muted);
-            font-size: 12px;
-            font-weight: 700;
-            text-align: right;
-            margin: 25px 12px 12px 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .btn-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 18px 24px;
-            margin-bottom: 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 15px;
-            font-weight: 400;
+        .glass-stat {
+            background: rgba(255, 222, 77, 0.03);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            border: 1px solid rgba(255, 222, 77, 0.15);
         }
 
-        .btn-link .icon-text {
-            display: flex;
-            align-items: center;
-            gap: 14px;
+        /* Ambient Glow Background */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: #FFDE4D;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ambient-glow-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: #ff9900;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .btn-link i {
-            font-size: 20px;
-            color: #ffffff; 
-            background: none;
-            -webkit-text-fill-color: initial;
-            transition: all 0.3s ease;
-        }
-
-        .btn-link .arrow-icon {
-            font-size: 12px;
-            color: var(--text-muted);
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .btn-link:hover {
-            border-color: rgba(241, 196, 15, 0.3);
-            background: rgba(241, 196, 15, 0.04);
-            box-shadow: 0 10px 25px rgba(241, 196, 15, 0.08), inset 0 0 12px rgba(255,255,255,0.01);
-            transform: translateY(-3px) scale(1.01);
-        }
-
-        .btn-link:hover i {
-            background: linear-gradient(135deg, #fff, var(--accent-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .btn-link:hover .arrow-icon {
-            color: var(--accent-glow);
-            transform: translateX(-5px);
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid var(--glass-border);
-            margin: 40px 0 20px 0;
-        }
-
-        .footer-text {
-            color: var(--text-muted);
-            font-size: 11px;
-            font-weight: 300; 
-            letter-spacing: 0.5px;
+        /* Notification Toast */
+        #toast {
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
     </style>
 </head>
-<body>
+<body class="bg-[#0a0a0c] text-gray-100 font-sans min-h-screen relative overflow-x-hidden selection:bg-mustard selection:text-black">
 
-    <div class="splash-screen" id="splashScreen">
-        <div class="splash-avatar-glow">
-            <img src="IMG_20260520_191313_447.jpg" alt="حسن فراس" class="splash-img">
-        </div>
-        <h1 class="splash-name">المهندس حسن فراس</h1>
-        <div class="splash-sub">مهندس اجهزة طبية وصانع محتوى</div>
+    <!-- Ambient Glowing Background Bubbles -->
+    <div class="ambient-glow-1 -top-20 -right-20"></div>
+    <div class="ambient-glow-2 top-1/2 -left-20"></div>
+    <div class="ambient-glow-1 -bottom-20 right-1/4"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-mustard text-black font-bold px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-2 text-sm opacity-0 pointer-events-none transform translate-y-4">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span id="toastMessage">تم نسخ الرقم بنجاح!</span>
     </div>
 
-    <div class="main-content" id="mainContent">
-        
-        <div class="profile-container">
-            <img src="IMG_20260520_191313_447.jpg" alt="المهندس حسن فراس" class="profile-img">
-            <h2 class="profile-name">المهندس حسن فراس</h2>
-            <p class="profile-tag">مهندس اجهزة طبية وصانع محتوى</p>
-        </div>
+    <!-- Main Container -->
+    <div class="relative z-10 max-w-2xl mx-auto px-4 py-10 sm:px-6">
 
-        <div class="section-title">للأعلانات والتعاونات التجارية</div>
-        <a href="https://wa.me/9647835552957" target="_blank" class="btn-link">
-            <div class="icon-text">
-                <i class="fab fa-whatsapp"></i>
-                <span> واتساب</span>
-            </div>
-            <i class="fas fa-chevron-left arrow-icon"></i>
-        </a>
-
-        <div class="section-title">مواقع التواصل الأجتماعي</div>
-        
-        <a href="https://instagram.com/z29u" target="_blank" class="btn-link">
-            <div class="icon-text">
-                <i class="fab fa-instagram"></i>
-                <span>انستغرام - Instagram</span>
-            </div>
-            <i class="fas fa-chevron-left arrow-icon"></i>
-        </a>
-
-        <a href="https://www.tiktok.com/@1_6c?_r=1&_t=ZS-96WUKMpVIUG" target="_blank" class="btn-link">
-            <div class="icon-text">
-                <i class="fab fa-tiktok"></i>
-                <span> تيك توك - TikTok </span>
-            </div>
-            <i class="fas fa-chevron-left arrow-icon"></i>
-        </a>
-
-        <hr>
-
-        <div class="footer-text">جميع الحقوق محفوظة لدى المهندس حسن فراس</div>
-    </div>
-
-    <script>
-        setTimeout(function() {
-            var splashScreen = document.getElementById('splashScreen');
-            var mainContent = document.getElementById('mainContent');
-
-            splashScreen.classList.add('fade-out');
+        <!-- HEADER / PROFILE SECTION -->
+        <header class="text-center flex flex-col items-center mb-8 animate-float">
             
-            setTimeout(function() {
-                splashScreen.style.display = 'none';
-                mainContent.classList.add('show');
-            }, 400); 
+            <!-- Top Actions (Share Button) -->
+            <div class="w-full flex justify-end mb-4">
+                <button onclick="sharePage()" class="glass-card w-10 h-10 rounded-full flex items-center justify-center text-gray-300 hover:text-mustard hover:scale-110 transition-all" title="مشاركة الصفحة">
+                    <i class="fa-solid fa-share-nodes text-sm"></i>
+                </button>
+            </div>
 
-        }, 6000);
+            <!-- Profile Image Container with Mustard Glow -->
+            <div class="relative mb-5">
+                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-amber-500 via-mustard to-yellow-200 shadow-[0_0_25px_rgba(255,222,77,0.3)]">
+                    <!-- Default avatar image with fallback -->
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400" alt="حسن فراس" class="w-full h-full object-cover rounded-full border-2 border-[#0a0a0c]">
+                </div>
+                <!-- Verified Badge -->
+                <div class="absolute bottom-1 left-1 bg-mustard text-black w-7 h-7 rounded-full flex items-center justify-center text-xs shadow-lg font-bold" title="مُوثّق">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <!-- Name & Title -->
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2 text-white">
+                حسن فراس <span class="text-mustard text-2xl font-semibold">(Hassan Firas)</span>
+            </h1>
+            
+            <!-- Badge Subtitle -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mustard/10 border border-mustard/30 text-mustard text-xs sm:text-sm font-bold mb-3">
+                <i class="fa-solid fa-microscope text-xs"></i>
+                <span>مهندس تقنيات أجهزة طبية | صانع محتوى تعليمي وتقني</span>
+            </div>
+
+            <p class="text-gray-400 text-xs sm:text-sm max-w-md leading-relaxed">
+                مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.
+            </p>
+        </header>
+
+        <!-- STATS SECTION -->
+        <section class="mb-8">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 text-right mb-3 px-1">
+                <i class="fa-solid fa-chart-line text-mustard ml-1.5"></i> الإحصائيات والأرقام
+            </h2>
+
+            <div class="grid grid-cols-3 gap-2.5 sm:gap-4">
+                <!-- Stat Card 1 -->
+                <div class="glass-stat p-3 sm:p-4 rounded-2xl text-center flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300">
+                    <div class="w-9 h-9 rounded-xl bg-pink-500/10 text-pink-400 border border-pink-500/20 flex items-center justify-center text-lg mb-2">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black text-white tracking-tight">+1M</span>
+                    <span class="text-[10px] sm:text-xs text-gray-400 font-semibold mt-0.5">زيارات الإنستغرام</span>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="glass-stat p-3 sm:p-4 rounded-2xl text-center flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300">
+                    <div class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center text-lg mb-2">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black text-white tracking-tight">+9M</span>
+                    <span class="text-[10px] sm:text-xs text-gray-400 font-semibold mt-0.5">زيارات التيك توك</span>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="glass-stat p-3 sm:p-4 rounded-2xl text-center flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300">
+                    <div class="w-9 h-9 rounded-xl bg-mustard/10 text-mustard border border-mustard/20 flex items-center justify-center text-lg mb-2">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black text-white tracking-tight">+5</span>
+                    <span class="text-[10px] sm:text-xs text-gray-400 font-semibold mt-0.5">تعاونات تجارية</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUSINESS & CONTACT SECTION (WHATSAPP) -->
+        <section class="mb-8">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 text-right mb-3 px-1">
+                <i class="fa-solid fa-briefcase text-mustard ml-1.5"></i> الإعلانات والتعاون التجاري
+            </h2>
+
+            <div class="glass-card p-5 rounded-2xl border-l-4 border-l-emerald-500 relative overflow-hidden">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="font-bold text-white text-sm sm:text-base">مباشر واتساب للأعمال</h3>
+                            <p class="text-xs text-gray-400 dir-ltr text-right font-mono mt-0.5">+964 783 555 2957</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <a href="https://wa.me/9647835552957" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
+                            <i class="fa-solid fa-paper-plane"></i> مراسلة
+                        </a>
+                        <button onclick="copyToClipboard('+9647835552957')" class="px-3.5 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-gray-300 text-xs flex items-center justify-center gap-1.5 transition-all" title="نسخ الرقم">
+                            <i class="fa-regular fa-copy"></i> نسخ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL LINKS SECTION -->
+        <section class="space-y-3.5 mb-10">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 text-right mb-3 px-1">
+                <i class="fa-solid fa-globe text-mustard ml-1.5"></i> حساباتي الرسمية
+            </h2>
+
+            <!-- Instagram Link Card -->
+            <a href="https://instagram.com/z29u" target="_blank" class="glass-card flex items-center p-4 rounded-2xl group relative overflow-hidden">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600/20 via-pink-600/20 to-amber-500/20 text-pink-400 border border-pink-500/30 flex items-center justify-center text-2xl ml-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="flex-1 text-right">
+                    <div class="flex items-center gap-2">
+                        <h3 class="font-bold text-white group-hover:text-mustard transition-colors text-sm sm:text-base">حساب الانستغرام</h3>
+                        <span class="text-[10px] bg-pink-500/10 text-pink-400 border border-pink-500/20 px-2 py-0.5 rounded-full font-mono">@z29u</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-0.5">تغطيات يومية، محتوى تقني وطبي مميز (+1M زيارة)</p>
+                </div>
+                <i class="fa-solid fa-chevron-left text-gray-500 group-hover:text-mustard group-hover:-translate-x-1 transition-all text-xs"></i>
+            </a>
+
+            <!-- TikTok Link Card -->
+            <a href="https://www.tiktok.com/@1_6c" target="_blank" class="glass-card flex items-center p-4 rounded-2xl group relative overflow-hidden">
+                <div class="w-12 h-12 rounded-xl bg-zinc-800 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-2xl ml-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-tiktok"></i>
+                </div>
+                <div class="flex-1 text-right">
+                    <div class="flex items-center gap-2">
+                        <h3 class="font-bold text-white group-hover:text-mustard transition-colors text-sm sm:text-base">حساب التيك توك</h3>
+                        <span class="text-[10px] bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2 py-0.5 rounded-full font-mono">@1_6c</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-0.5">مقاطع فيديو قصيرة وشروحات تفاعلية (+9M زيارة)</p>
+                </div>
+                <i class="fa-solid fa-chevron-left text-gray-500 group-hover:text-mustard group-hover:-translate-x-1 transition-all text-xs"></i>
+            </a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-xs text-gray-500 border-t border-zinc-800/80 pt-6">
+            <p>جميع الحقوق محفوظة © <span id="currentYear"></span> <span class="text-mustard font-semibold">حسن فراس</span></p>
+            <p class="mt-1 text-gray-600">جاهز للرفع والتفعيل المباشر على GitHub Pages</p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Automatic Year Update
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // COPY TO CLIPBOARD FUNCTION
+        function copyToClipboard(text) {
+            // Using textarea fallback for maximum compatibility in iframe/GitHub pages
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast("تم نسخ الرقم بنجاح!");
+            } catch (err) {
+                showToast("تعذر النسخ تلقائياً");
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+
+        // SHOW TOAST NOTIFICATION
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            
+            toastMsg.textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }, 3000);
+        }
+
+        // SHARE PAGE FUNCTION
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'حسن فراس | Linktree & Portfolio',
+                    text: 'تصفح حسابات التواصل الاجتماعي والتعاون التجاري للera المهندس حسن فراس',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                copyToClipboard(window.location.href);
+                showToast("تم نسخ رابط الصفحة بنجاح!");
+            }
+        }
     </script>
-
 </body>
 </html>
