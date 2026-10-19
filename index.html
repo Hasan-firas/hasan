@@ -56,12 +56,16 @@
             position: relative;
         }
 
-        /* Language Switcher Fixed Container (ثابت دائماً في أعلى اليمين أو اليسار حسب الرغبة، هنا ثبتناه في أقصى اليمين لتجربة مريحة) */
+        /* Language Switcher Fixed Container */
         .lang-switch-container {
             width: 100%;
             display: flex;
-            justify-content: flex-start;
+            justify-content: flex-end;
             height: 35px;
+        }
+
+        html[dir="ltr"] .lang-switch-container {
+            justify-content: flex-start;
         }
 
         .lang-btn {
@@ -122,21 +126,25 @@
             border: 2px solid var(--bg-color);
         }
 
-        /* تثبيت مكان علامة التوثيق بغض النظر عن اللغة */
-        .verified-badge {
-            position: absolute;
-            bottom: 4px;
-            right: 8px;
-            background: var(--primary-accent);
-            color: #000;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            border: 2px solid var(--bg-color);
+       .verified-badge {
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+    left: auto !important;
+    background: var(--primary-accent);
+    color: #000;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    border: 2px solid var(--bg-color);
+}
+        html[dir="ltr"] .verified-badge {
+            right: auto;
+            left: 8px;
         }
 
         .name {
@@ -216,7 +224,7 @@
         /* Section Title */
         .section-title {
             width: 100%;
-            text-align: right;
+            text-align: start;
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-muted);
@@ -271,14 +279,14 @@
             font-size: 1rem;
             color: #fff;
             font-weight: 700;
-            text-align: right;
+            text-align: start;
         }
 
         .ad-text p {
             font-size: 0.8rem;
             color: #a0a0a0;
             direction: ltr;
-            text-align: right;
+            text-align: start;
         }
 
         .ad-actions {
@@ -378,18 +386,27 @@
         .link-title {
             font-size: 0.95rem;
             font-weight: 700;
-            text-align: right;
+            text-align: start;
         }
 
         .link-handle {
             font-size: 0.75rem;
             color: var(--text-muted);
-            text-align: right;
+            text-align: start;
         }
 
         .link-arrow {
             color: var(--text-muted);
             font-size: 0.85rem;
+            transition: transform 0.2s ease;
+        }
+
+        html[dir="rtl"] .link-arrow {
+            transform: rotate(0deg);
+        }
+
+        html[dir="ltr"] .link-arrow {
+            transform: rotate(180deg);
         }
 
         /* Toast notification */
@@ -422,11 +439,11 @@
         }
     </style>
 </head>
-<body dir="rtl">
+<body>
 
     <div class="container">
 
-        <!-- Language Switcher Button (ثابت بالمكان) -->
+        <!-- Language Switcher Button -->
         <div class="lang-switch-container">
             <button class="lang-btn" onclick="toggleLanguage()">
                 <i class="fa-solid fa-globe"></i> <span id="lang-btn-text">English</span>
@@ -597,7 +614,11 @@
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             const t = translations[currentLang];
 
-            // تحديث النصوص فقط دون تغيير مكان زر اللغة أو تخريب التصميم
+            // Change Direction & Lang Attributes
+            document.documentElement.setAttribute('lang', currentLang);
+            document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+
+            // Update Text Contents
             document.getElementById('lang-btn-text').innerText = t.langBtn;
             document.getElementById('name').innerText = t.name;
             document.getElementById('badge-text').innerText = t.badge;
@@ -607,7 +628,6 @@
             document.getElementById('stat-collab').innerText = t.statCollab;
             document.getElementById('sec-commercial').innerText = t.secCommercial;
             document.getElementById('wa-title').innerText = t.waTitle;
-            document.getElementById('btn-chat').innerText.innerText = t.btnChat; // handled below safely
             document.getElementById('btn-chat').innerText = t.btnChat;
             document.getElementById('btn-copy-text').innerText = t.btnCopy;
             document.getElementById('sec-social').innerText = t.secSocial;
