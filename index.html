@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حسن فراس | HaSaN FiRaS</title>
+    <title>حسن فراس | Hassan Firas</title>
     <!-- خط Cairo من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 40px 15px;
+            padding: 20px 15px 40px 15px;
         }
 
         .container {
@@ -52,7 +52,37 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 24px;
+            gap: 20px;
+            position: relative;
+        }
+
+        /* Language Switcher Button */
+        .lang-switch-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            color: var(--primary-accent);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 222, 77, 0.15);
+            border-color: var(--primary-accent);
+            transform: translateY(-2px);
         }
 
         /* Profile Section */
@@ -85,7 +115,6 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            /* تعديل ضبط قياسات الصورة لتمركز الوجه */
             object-fit: cover;
             object-position: center 20%;
             background-color: #1a1a1a;
@@ -108,6 +137,11 @@
             border: 2px solid var(--bg-color);
         }
 
+        html[dir="ltr"] .verified-badge {
+            right: auto;
+            left: 8px;
+        }
+
         .name {
             font-size: 1.8rem;
             font-weight: 900;
@@ -125,9 +159,10 @@
             color: var(--primary-accent);
             padding: 6px 16px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             margin-bottom: 12px;
+            text-align: center;
         }
 
         .bio {
@@ -150,7 +185,7 @@
             border: 1px solid var(--border-color);
             backdrop-filter: blur(12px);
             border-radius: 16px;
-            padding: 16px 10px;
+            padding: 16px 8px;
             text-align: center;
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
@@ -184,7 +219,7 @@
         /* Section Title */
         .section-title {
             width: 100%;
-            text-align: right;
+            text-align: start;
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-muted);
@@ -245,7 +280,7 @@
             font-size: 0.8rem;
             color: #a0a0a0;
             direction: ltr;
-            text-align: right;
+            text-align: start;
         }
 
         .ad-actions {
@@ -355,6 +390,15 @@
         .link-arrow {
             color: var(--text-muted);
             font-size: 0.85rem;
+            transition: transform 0.2s ease;
+        }
+
+        html[dir="rtl"] .link-arrow {
+            transform: rotate(0deg);
+        }
+
+        html[dir="ltr"] .link-arrow {
+            transform: rotate(180deg);
         }
 
         /* Toast notification */
@@ -391,11 +435,17 @@
 
     <div class="container">
 
+        <!-- Language Switcher Button -->
+        <div class="lang-switch-container">
+            <button class="lang-btn" onclick="toggleLanguage()">
+                <i class="fa-solid fa-globe"></i> <span id="lang-btn-text">English</span>
+            </button>
+        </div>
+
         <!-- Profile Section -->
         <div class="profile-card">
             <div class="avatar-wrapper">
                 <div class="avatar-ring">
-                    <!-- تم وضع رابط الصورة المباشر الجديد مع ضبط القياسات -->
                     <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/01feaff920786e694c66829b62327d84643171dd/aa.JPEG" alt="حسن فراس" class="profile-img">
                 </div>
                 <div class="verified-badge">
@@ -403,15 +453,15 @@
                 </div>
             </div>
             
-            <h1 class="name">حسن فراس <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 400;">(Hassan Firas)</span></h1>
+            <h1 class="name" id="name">حسن فراس <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 400;">(Hassan Firas)</span></h1>
             
             <div class="badge-title">
                 <i class="fa-solid fa-microscope"></i>
-                مهندس أجهزة طبية | صانع محتوى تعليمي 
+                <span id="badge-text">مهندس تقنيات أجهزة طبية | صانع محتوى تعليمي وتقني</span>
             </div>
 
-            <p class="bio">
-                مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.
+            <p class="bio" id="bio">
+                مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.
             </p>
         </div>
 
@@ -420,23 +470,23 @@
             <div class="stat-card">
                 <div class="stat-icon insta"><i class="fa-brands fa-instagram"></i></div>
                 <div class="stat-number">1M+</div>
-                <div class="stat-label">زيارات الإنستغرام</div>
+                <div class="stat-label" id="stat-insta">زيارات الإنستغرام</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon tiktok"><i class="fa-brands fa-tiktok"></i></div>
                 <div class="stat-number">9M+</div>
-                <div class="stat-label">زيارات التيك توك</div>
+                <div class="stat-label" id="stat-tiktok">زيارات التيك توك</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon collab"><i class="fa-solid fa-handshake"></i></div>
                 <div class="stat-number">5+</div>
-                <div class="stat-label">تعاونات تجارية</div>
+                <div class="stat-label" id="stat-collab">تعاونات تجارية</div>
             </div>
         </div>
 
         <!-- Commercial / Ad Section -->
         <div class="section-title">
-            <i class="fa-solid fa-briefcase"></i> الإعلانات والتعاون التجاري
+            <i class="fa-solid fa-briefcase"></i> <span id="sec-commercial">الإعلانات والتعاون التجاري</span>
         </div>
 
         <div class="ad-card">
@@ -446,24 +496,24 @@
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
                     <div class="ad-text">
-                        <h3>واتساب للأعمال</h3>
+                        <h3 id="wa-title">مباشر واتساب للأعمال</h3>
                         <p>+964 783 555 2957</p>
                     </div>
                 </div>
             </div>
             <div class="ad-actions">
                 <a href="https://wa.me/9647835552957" target="_blank" class="btn-whatsapp">
-                    <i class="fa-paper-plane"></i> مراسلة
+                    <i class="fa-paper-plane"></i> <span id="btn-chat">مراسلة</span>
                 </a>
                 <button class="btn-copy" onclick="copyNumber('+9647835552957')">
-                    <i class="fa-regular fa-copy"></i> نسخ
+                    <i class="fa-regular fa-copy"></i> <span id="btn-copy-text">نسخ</span>
                 </button>
             </div>
         </div>
 
         <!-- Social Links Section -->
         <div class="section-title">
-            <i class="fa-solid fa-globe"></i> حساباتي الرسمية
+            <i class="fa-solid fa-globe"></i> <span id="sec-social">حساباتي الرسمية</span>
         </div>
 
         <div class="links-list">
@@ -474,7 +524,7 @@
                         <i class="fa-brands fa-instagram"></i>
                     </div>
                     <div>
-                        <div class="link-title">حساب الإنستغرام</div>
+                        <div class="link-title" id="title-insta">حساب الإنستغرام</div>
                         <div class="link-handle">@z29u</div>
                     </div>
                 </div>
@@ -490,7 +540,7 @@
                         <i class="fa-brands fa-tiktok"></i>
                     </div>
                     <div>
-                        <div class="link-title">حساب التيك توك</div>
+                        <div class="link-title" id="title-tiktok">حساب التيك توك</div>
                         <div class="link-handle">@1_6c</div>
                     </div>
                 </div>
@@ -501,7 +551,7 @@
         </div>
 
         <!-- Footer -->
-        <footer>
+        <footer id="footer">
             © Hassan Firas | جميع الحقوق محفوظة
         </footer>
 
@@ -511,6 +561,74 @@
     <div id="toast" class="toast">تم نسخ الرقم بنجاح!</div>
 
     <script>
+        let currentLang = 'ar';
+
+        const translations = {
+            ar: {
+                langBtn: "English",
+                name: 'حسن فراس <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 400;">(Hassan Firas)</span>',
+                badge: "مهندس تقنيات أجهزة طبية | صانع محتوى تعليمي وتقني",
+                bio: "مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.",
+                statInsta: "زيارات الإنستغرام",
+                statTiktok: "زيارات التيك توك",
+                statCollab: "تعاونات تجارية",
+                secCommercial: "الإعلانات والتعاون التجاري",
+                waTitle: "مباشر واتساب للأعمال",
+                btnChat: "مراسلة",
+                btnCopy: "نسخ",
+                secSocial: "حساباتي الرسمية",
+                titleInsta: "حساب الإنستغرام",
+                titleTiktok: "حساب التيك توك",
+                footer: "© Hassan Firas | جميع الحقوق محفوظة",
+                toastMsg: "تم نسخ الرقم بنجاح!"
+            },
+            en: {
+                langBtn: "عربي",
+                name: 'Hassan Firas <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 400;">(حسن فراس)</span>',
+                badge: "Medical Devices Tech Engineer | Educational Content Creator",
+                bio: "Welcome to my official page. Sharing my passion for medical devices, technology, and covering commercial partnerships.",
+                statInsta: "Instagram Visits",
+                statTiktok: "TikTok Visits",
+                statCollab: "Brand Collaborations",
+                secCommercial: "Ads & Business Inquiries",
+                waTitle: "WhatsApp Business Direct",
+                btnChat: "Message",
+                btnCopy: "Copy",
+                secSocial: "Official Accounts",
+                titleInsta: "Instagram Profile",
+                titleTiktok: "TikTok Profile",
+                footer: "© Hassan Firas | All Rights Reserved",
+                toastMsg: "Number copied successfully!"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const t = translations[currentLang];
+
+            // Change Direction & Lang Attributes
+            document.documentElement.setAttribute('lang', currentLang);
+            document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+
+            // Update Text Contents
+            document.getElementById('lang-btn-text').innerText = t.langBtn;
+            document.getElementById('name').innerHTML = t.name;
+            document.getElementById('badge-text').innerText = t.badge;
+            document.getElementById('bio').innerText = t.bio;
+            document.getElementById('stat-insta').innerText = t.statInsta;
+            document.getElementById('stat-tiktok').innerText = t.statTiktok;
+            document.getElementById('stat-collab').innerText = t.statCollab;
+            document.getElementById('sec-commercial').innerText = t.secCommercial;
+            document.getElementById('wa-title').innerText = t.waTitle;
+            document.getElementById('btn-chat').innerText = t.btnChat;
+            document.getElementById('btn-copy-text').innerText = t.btnCopy;
+            document.getElementById('sec-social').innerText = t.secSocial;
+            document.getElementById('title-insta').innerText = t.titleInsta;
+            document.getElementById('title-tiktok').innerText = t.titleTiktok;
+            document.getElementById('footer').innerText = t.footer;
+            document.getElementById('toast').innerText = t.toastMsg;
+        }
+
         function copyNumber(text) {
             navigator.clipboard.writeText(text).then(() => {
                 const toast = document.getElementById('toast');
