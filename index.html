@@ -56,11 +56,16 @@
             position: relative;
         }
 
-        /* Language Switcher Button */
+        /* Language Switcher Fixed Container */
         .lang-switch-container {
             width: 100%;
             display: flex;
             justify-content: flex-end;
+            height: 35px;
+        }
+
+        html[dir="ltr"] .lang-switch-container {
+            justify-content: flex-start;
         }
 
         .lang-btn {
@@ -143,7 +148,7 @@
         }
 
         .name {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 900;
             color: #fff;
             margin-bottom: 6px;
@@ -274,6 +279,7 @@
             font-size: 1rem;
             color: #fff;
             font-weight: 700;
+            text-align: start;
         }
 
         .ad-text p {
@@ -380,11 +386,13 @@
         .link-title {
             font-size: 0.95rem;
             font-weight: 700;
+            text-align: start;
         }
 
         .link-handle {
             font-size: 0.75rem;
             color: var(--text-muted);
+            text-align: start;
         }
 
         .link-arrow {
@@ -453,15 +461,15 @@
                 </div>
             </div>
             
-            <h1 class="name" id="name">حسن فراس <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 400;">(HaSaN FiRaS)</span></h1>
+            <h1 class="name" id="name">حسن فراس | HaSaN FiRaS</h1>
             
             <div class="badge-title">
                 <i class="fa-solid fa-microscope"></i>
-                <span id="badge-text">مهندس أجهزة طبية | صانع محتوى تعليمي </span>
+                <span id="badge-text">مهندس أجهزة طبية | صانع محتوى تعليمي</span>
             </div>
 
             <p class="bio" id="bio">
-                مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.
+                مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.
             </p>
         </div>
 
@@ -496,15 +504,18 @@
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
                     <div class="ad-text">
-                        <h3 id="wa-title">واتساب للأعمال</h3>
+                        <h3 id="wa-title">مباشر واتساب للأعمال</h3>
                         <p>+964 783 555 2957</p>
                     </div>
                 </div>
             </div>
             <div class="ad-actions">
                 <a href="https://wa.me/9647835552957" target="_blank" class="btn-whatsapp">
-                    <i class="fa-paper-plane"></i> <span id="btn-chat">مراسلة</span>
+                    <i class="fa-solid fa-paper-plane"></i> <span id="btn-chat">مراسلة</span>
                 </a>
+                <button class="btn-copy" onclick="copyNumber('+9647835552957')">
+                    <i class="fa-regular fa-copy"></i> <span id="btn-copy-text">نسخ</span>
+                </button>
             </div>
         </div>
 
@@ -563,8 +574,8 @@
         const translations = {
             ar: {
                 langBtn: "English",
-                name: 'حسن فراس <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 400;">(Hassan Firas)</span>',
-                badge: "مهندس تقنيات أجهزة طبية | صانع محتوى تعليمي وتقني",
+                name: "حسن فراس | HaSaN FiRaS",
+                badge: "مهندس أجهزة طبية | صانع محتوى تعليمي",
                 bio: "مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.",
                 statInsta: "زيارات الإنستغرام",
                 statTiktok: "زيارات التيك توك",
@@ -576,13 +587,13 @@
                 secSocial: "حساباتي الرسمية",
                 titleInsta: "حساب الإنستغرام",
                 titleTiktok: "حساب التيك توك",
-                footer: "© Hassan Firas | جميع الحقوق محفوظة",
+                footer: "© HaSaN FiRaS | جميع الحقوق محفوظة",
                 toastMsg: "تم نسخ الرقم بنجاح!"
             },
             en: {
                 langBtn: "عربي",
-                name: 'Hassan Firas <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 400;">(حسن فراس)</span>',
-                badge: "Medical Devices Tech Engineer | Educational Content Creator",
+                name: "HaSaN FiRaS | حسن فراس",
+                badge: "Medical Devices Tech Engineer | Educational Creator",
                 bio: "Welcome to my official page. Sharing my passion for medical devices, technology, and covering commercial partnerships.",
                 statInsta: "Instagram Visits",
                 statTiktok: "TikTok Visits",
@@ -594,7 +605,7 @@
                 secSocial: "Official Accounts",
                 titleInsta: "Instagram Profile",
                 titleTiktok: "TikTok Profile",
-                footer: "© Hassan Firas | All Rights Reserved",
+                footer: "© HaSaN FiRaS | All Rights Reserved",
                 toastMsg: "Number copied successfully!"
             }
         };
@@ -609,7 +620,7 @@
 
             // Update Text Contents
             document.getElementById('lang-btn-text').innerText = t.langBtn;
-            document.getElementById('name').innerHTML = t.name;
+            document.getElementById('name').innerText = t.name;
             document.getElementById('badge-text').innerText = t.badge;
             document.getElementById('bio').innerText = t.bio;
             document.getElementById('stat-insta').innerText = t.statInsta;
