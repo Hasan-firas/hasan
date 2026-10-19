@@ -56,16 +56,12 @@
             position: relative;
         }
 
-        /* Language Switcher Fixed Container */
+        /* Language Switcher Fixed Container (ثابت دائماً في أعلى اليمين أو اليسار حسب الرغبة، هنا ثبتناه في أقصى اليمين لتجربة مريحة) */
         .lang-switch-container {
             width: 100%;
             display: flex;
-            justify-content: flex-end;
-            height: 35px;
-        }
-
-        html[dir="ltr"] .lang-switch-container {
             justify-content: flex-start;
+            height: 35px;
         }
 
         .lang-btn {
@@ -126,6 +122,7 @@
             border: 2px solid var(--bg-color);
         }
 
+        /* تثبيت مكان علامة التوثيق بغض النظر عن اللغة */
         .verified-badge {
             position: absolute;
             bottom: 4px;
@@ -140,11 +137,6 @@
             justify-content: center;
             font-size: 13px;
             border: 2px solid var(--bg-color);
-        }
-
-        html[dir="ltr"] .verified-badge {
-            right: auto;
-            left: 8px;
         }
 
         .name {
@@ -224,7 +216,7 @@
         /* Section Title */
         .section-title {
             width: 100%;
-            text-align: start;
+            text-align: right;
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--text-muted);
@@ -279,14 +271,14 @@
             font-size: 1rem;
             color: #fff;
             font-weight: 700;
-            text-align: start;
+            text-align: right;
         }
 
         .ad-text p {
             font-size: 0.8rem;
             color: #a0a0a0;
             direction: ltr;
-            text-align: start;
+            text-align: right;
         }
 
         .ad-actions {
@@ -386,27 +378,18 @@
         .link-title {
             font-size: 0.95rem;
             font-weight: 700;
-            text-align: start;
+            text-align: right;
         }
 
         .link-handle {
             font-size: 0.75rem;
             color: var(--text-muted);
-            text-align: start;
+            text-align: right;
         }
 
         .link-arrow {
             color: var(--text-muted);
             font-size: 0.85rem;
-            transition: transform 0.2s ease;
-        }
-
-        html[dir="rtl"] .link-arrow {
-            transform: rotate(0deg);
-        }
-
-        html[dir="ltr"] .link-arrow {
-            transform: rotate(180deg);
         }
 
         /* Toast notification */
@@ -439,11 +422,11 @@
         }
     </style>
 </head>
-<body>
+<body dir="rtl">
 
     <div class="container">
 
-        <!-- Language Switcher Button -->
+        <!-- Language Switcher Button (ثابت بالمكان) -->
         <div class="lang-switch-container">
             <button class="lang-btn" onclick="toggleLanguage()">
                 <i class="fa-solid fa-globe"></i> <span id="lang-btn-text">English</span>
@@ -614,11 +597,7 @@
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             const t = translations[currentLang];
 
-            // Change Direction & Lang Attributes
-            document.documentElement.setAttribute('lang', currentLang);
-            document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-
-            // Update Text Contents
+            // تحديث النصوص فقط دون تغيير مكان زر اللغة أو تخريب التصميم
             document.getElementById('lang-btn-text').innerText = t.langBtn;
             document.getElementById('name').innerText = t.name;
             document.getElementById('badge-text').innerText = t.badge;
@@ -628,6 +607,7 @@
             document.getElementById('stat-collab').innerText = t.statCollab;
             document.getElementById('sec-commercial').innerText = t.secCommercial;
             document.getElementById('wa-title').innerText = t.waTitle;
+            document.getElementById('btn-chat').innerText.innerText = t.btnChat; // handled below safely
             document.getElementById('btn-chat').innerText = t.btnChat;
             document.getElementById('btn-copy-text').innerText = t.btnCopy;
             document.getElementById('sec-social').innerText = t.secSocial;
