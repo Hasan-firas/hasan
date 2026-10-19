@@ -44,6 +44,7 @@
             justify-content: center;
             align-items: flex-start;
             padding: 20px 15px 40px 15px;
+            overflow-x: hidden;
         }
 
         .container {
@@ -62,6 +63,7 @@
             display: flex;
             justify-content: flex-end;
             height: 35px;
+            animation: fadeIn 0.8s ease forwards;
         }
 
         html[dir="ltr"] .lang-switch-container {
@@ -102,6 +104,7 @@
         .avatar-wrapper {
             position: relative;
             margin-bottom: 16px;
+            animation: avatarEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .avatar-ring {
@@ -114,6 +117,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: pulseGlow 3s infinite ease-in-out 1.2s;
         }
 
         .profile-img {
@@ -124,25 +128,31 @@
             object-position: center 20%;
             background-color: #1a1a1a;
             border: 2px solid var(--bg-color);
+            transition: transform 0.4s ease;
         }
 
-  .verified-badge {
-    position: absolute;
-    bottom: 4px;
-    right: 8px;
-    left: auto;
-    transform: none !important;
-    background: var(--primary-accent);
-    color: #000;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    border: 2px solid var(--bg-color);
-}
+        .avatar-wrapper:hover .profile-img {
+            transform: scale(1.05);
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 4px;
+            right: 8px;
+            left: auto;
+            transform: none !important;
+            background: var(--primary-accent);
+            color: #000;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            border: 2px solid var(--bg-color);
+            animation: badgePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s backwards;
+        }
         
         html[dir="ltr"] .verified-badge {
             right: auto;
@@ -155,6 +165,8 @@
             color: #fff;
             margin-bottom: 6px;
             letter-spacing: -0.5px;
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+            opacity: 0;
         }
 
         .badge-title {
@@ -170,6 +182,8 @@
             font-weight: 700;
             margin-bottom: 12px;
             text-align: center;
+            animation: fadeInUp 0.8s ease forwards 0.45s;
+            opacity: 0;
         }
 
         .bio {
@@ -177,6 +191,8 @@
             color: var(--text-muted);
             line-height: 1.6;
             max-width: 90%;
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+            opacity: 0;
         }
 
         /* Stats Section */
@@ -185,6 +201,8 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             width: 100%;
+            animation: fadeInUp 0.8s ease forwards 0.75s;
+            opacity: 0;
         }
 
         .stat-card {
@@ -234,6 +252,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            animation: fadeInUp 0.8s ease forwards 0.85s;
+            opacity: 0;
         }
 
         .section-title i {
@@ -251,6 +271,8 @@
             flex-direction: column;
             gap: 14px;
             backdrop-filter: blur(12px);
+            animation: fadeInUp 0.8s ease forwards 0.95s;
+            opacity: 0;
         }
 
         .ad-header {
@@ -342,6 +364,8 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            animation: fadeInUp 0.8s ease forwards 1.05s;
+            opacity: 0;
         }
 
         .link-item {
@@ -438,6 +462,63 @@
             font-size: 0.75rem;
             color: var(--text-muted);
             text-align: center;
+            animation: fadeIn 0.8s ease forwards 1.2s;
+            opacity: 0;
+        }
+
+        /* ==================== Keyframe Animations ==================== */
+        @keyframes avatarEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(-40px);
+                filter: blur(10px);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.08) translateY(5px);
+                filter: blur(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(255, 222, 77, 0.35);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 222, 77, 0.65);
+            }
+        }
+
+        @keyframes badgePop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
