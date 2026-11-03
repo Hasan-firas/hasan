@@ -260,6 +260,107 @@
             color: var(--primary-accent);
         }
 
+        /* Collaborations Slider Section */
+        .partners-section {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+            animation: fadeInUp 0.8s ease forwards 0.9s;
+            opacity: 0;
+        }
+
+        .partners-section::before,
+        .partners-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .partners-section::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-color), transparent);
+        }
+
+        .partners-section::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-color), transparent);
+        }
+
+        .partners-track {
+            display: flex;
+            gap: 15px;
+            width: max-content;
+            animation: scrollPartners 25s linear infinite;
+        }
+
+        .partners-track:hover {
+            animation-play-state: paused;
+        }
+
+        .partner-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 14px;
+            width: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-accent);
+        }
+
+        .partner-logo-wrap {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: #fff;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .partner-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .partner-name {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @keyframes scrollPartners {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-50% - 7.5px));
+            }
+        }
+
         /* Commercial / WhatsApp Card */
         .ad-card {
             width: 100%;
@@ -602,6 +703,83 @@
             </div>
         </div>
 
+        <!-- Strategic Collaborations Section (Slider) -->
+        <div class="section-title">
+            <i class="fa-solid fa-handshake-angle"></i> <span id="sec-partners">التعاونات والشراكات الاستراتيجية</span>
+        </div>
+
+        <div class="partners-section">
+            <div class="partners-track" id="partnersTrack">
+                <!-- Partner 1 -->
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img1.png" alt="Health Expo Iraq" class="partner-logo" onerror="this.src='https://raw.githubusercontent.com/Hasan-firas/hasan/01feaff920786e694c66829b62327d84643171dd/aa.JPEG'">
+                    </div>
+                    <div class="partner-name" data-ar="Health Expo Iraq" data-en="Health Expo Iraq">Health Expo Iraq</div>
+                </div>
+                <!-- Partner 2 -->
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img2.png" alt="مشروع مثقف ET" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="مشروع مثقف ET" data-en="Educated Project (ET)">مشروع مثقف ET</div>
+                </div>
+                <!-- Partner 3 -->
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img3.png" alt="منصة التعليم العالي HEPIQ" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="منصة التعليم العالي HEPIQ" data-en="HEPIQ Platform">منصة التعليم العالي HEPIQ</div>
+                </div>
+                <!-- Partner 4 -->
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img4.png" alt="رابطة رواد هندسة الطب الحياتي" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="رابطة رواد هندسة الطب الحياتي" data-en="Pioneers of B.M.E">رابطة رواد هندسة الطب الحياتي</div>
+                </div>
+                <!-- Partner 5 -->
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img5.png" alt="زوين للكتب الهندسية" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="زوين للكتب الهندسية" data-en="Zowin Engineering Books">زوين للكتب الهندسية</div>
+                </div>
+
+                <!-- Duplicate set for seamless infinite loop effect -->
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img1.png" alt="Health Expo Iraq" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="Health Expo Iraq" data-en="Health Expo Iraq">Health Expo Iraq</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img2.png" alt="مشروع مثقف ET" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="مشروع مثقف ET" data-en="Educated Project (ET)">مشروع مثقف ET</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img3.png" alt="منصة التعليم العالي HEPIQ" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="منصة التعليم العالي HEPIQ" data-en="HEPIQ Platform">منصة التعليم العالي HEPIQ</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img4.png" alt="رابطة رواد هندسة الطب الحياتي" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="رابطة رواد هندسة الطب الحياتي" data-en="Pioneers of B.M.E">رابطة رواد هندسة الطب الحياتي</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/main/img5.png" alt="زوين للكتب الهندسية" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="زوين للكتب الهندسية" data-en="Zowin Engineering Books">زوين للكتب الهندسية</div>
+                </div>
+            </div>
+        </div>
+
         <!-- Social Links Section -->
         <div class="section-title">
             <i class="fa-solid fa-globe"></i> <span id="sec-social">حساباتي الرسمية</span>
@@ -664,6 +842,7 @@
                 statTiktok: "زيارات التيك توك",
                 statCollab: "تعاونات تجارية",
                 secCommercial: "الإعلانات والتعاون التجاري",
+                secPartners: "التعاونات والشراكات الاستراتيجية",
                 waTitle: "مباشر واتساب للأعمال",
                 btnChat: "مراسلة",
                 btnCopy: "نسخ",
@@ -682,6 +861,7 @@
                 statTiktok: "TikTok Visits",
                 statCollab: "Brand Collaborations",
                 secCommercial: "Ads & Business Inquiries",
+                secPartners: "Strategic Collaborations & Partners",
                 waTitle: "WhatsApp Business Direct",
                 btnChat: "Message",
                 btnCopy: "Copy",
@@ -710,14 +890,21 @@
             document.getElementById('stat-tiktok').innerText = t.statTiktok;
             document.getElementById('stat-collab').innerText = t.statCollab;
             document.getElementById('sec-commercial').innerText = t.secCommercial;
+            document.getElementById('sec-partners').innerText = t.secPartners;
             document.getElementById('wa-title').innerText = t.waTitle;
             document.getElementById('btn-chat').innerText = t.btnChat;
             document.getElementById('btn-copy-text').innerText = t.btnCopy;
             document.getElementById('sec-social').innerText = t.secSocial;
             document.getElementById('title-insta').innerText = t.titleInsta;
-            document.getElementById('title-tiktok').innerText = t.titleTiktok;
+            document.getElementById('title-tiktok').innerText.innerText = t.titleTiktok;
             document.getElementById('footer').innerText = t.footer;
             document.getElementById('toast').innerText = t.toastMsg;
+
+            // Update partner card names based on language
+            const partnerNames = document.querySelectorAll('.partner-name');
+            partnerNames.forEach(el => {
+                el.innerText = el.getAttribute(`data-${currentLang}`);
+            });
         }
 
         function copyNumber(text) {
