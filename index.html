@@ -265,7 +265,7 @@
             display: flex;
             gap: 14px;
             width: max-content;
-            animation: scrollPartners 20s linear infinite;
+            animation: scrollPartners 22s linear infinite;
         }
 
         .partners-track:hover {
@@ -320,11 +320,11 @@
 
         /* تصحيح اتجاه وشروط الانزلاق اللانهائي المنسجم */
         html[dir="rtl"] .partners-track {
-            animation: scrollPartnersRTL 20s linear infinite;
+            animation: scrollPartnersRTL 22s linear infinite;
         }
 
         html[dir="ltr"] .partners-track {
-            animation: scrollPartnersLTR 20s linear infinite;
+            animation: scrollPartnersLTR 22s linear infinite;
         }
 
         @keyframes scrollPartnersRTL {
@@ -343,6 +343,73 @@
             100% {
                 transform: translateX(calc(-50% - 7px));
             }
+        }
+
+        /* Links List */
+        .links-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-item {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #fff;
+            backdrop-filter: blur(12px);
+        }
+
+        .link-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .link-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .link-icon.insta { color: var(--instagram-color); }
+        .link-icon.tiktok { color: var(--tiktok-color); }
+
+        .link-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-align: start;
+        }
+
+        .link-handle {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-align: start;
+        }
+
+        .link-arrow {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        html[dir="rtl"] .link-arrow {
+            transform: rotate(0deg);
+        }
+
+        html[dir="ltr"] .link-arrow {
+            transform: rotate(180deg);
         }
 
         /* Commercial / WhatsApp Card */
@@ -425,73 +492,6 @@
             gap: 5px;
         }
 
-        /* Links List */
-        .links-list {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .link-item {
-            width: 100%;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            color: #fff;
-            backdrop-filter: blur(12px);
-        }
-
-        .link-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .link-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .link-icon.insta { color: var(--instagram-color); }
-        .link-icon.tiktok { color: var(--tiktok-color); }
-
-        .link-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-align: start;
-        }
-
-        .link-handle {
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            text-align: start;
-        }
-
-        .link-arrow {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        html[dir="rtl"] .link-arrow {
-            transform: rotate(0deg);
-        }
-
-        html[dir="ltr"] .link-arrow {
-            transform: rotate(180deg);
-        }
-
         /* Toast notification */
         .toast {
             position: fixed;
@@ -570,34 +570,8 @@
             </div>
             <div class="stat-card">
                 <div class="stat-icon collab"><i class="fa-solid fa-handshake"></i></div>
-                <div class="stat-number">5+</div>
+                <div class="stat-number">6+</div>
                 <div class="stat-label" id="stat-collab">تعاونات تجارية</div>
-            </div>
-        </div>
-
-        <!-- Commercial / Ad Section -->
-        <div class="section-title">
-            <i class="fa-solid fa-briefcase"></i> <span id="sec-commercial">الإعلانات والتعاون التجاري</span>
-        </div>
-
-        <div class="ad-card">
-            <div class="ad-header">
-                <div class="ad-info">
-                    <div class="ad-icon">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <div class="ad-text">
-                        <h3 id="wa-title">مباشر واتساب للأعمال</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="ad-actions">
-                <a href="https://wa.me/9647835552957" target="_blank" class="btn-whatsapp">
-                    <i class="fa-solid fa-paper-plane"></i> <span id="btn-chat">مراسلة</span>
-                </a>
-                <button class="btn-copy" onclick="copyNumber('+9647835552957')">
-                    <i class="fa-regular fa-copy"></i> <span id="btn-copy-text">نسخ</span>
-                </button>
             </div>
         </div>
 
@@ -639,6 +613,12 @@
                     </div>
                     <div class="partner-name" data-ar="زوين للكتب الهندسية" data-en="Zowin Engineering Books">زوين للكتب الهندسية</div>
                 </div>
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/f0c026813395ee6edb5aca8df77ed751d8545fdb/%D8%B5%D9%88%D8%B1%D8%A9%207.jpg" alt="شركة QI" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="شركة كي كارد (QI)" data-en="Qi Card Company">شركة كي كارد (QI)</div>
+                </div>
 
                 <!-- Group 2 Duplicate for Loop -->
                 <div class="partner-card">
@@ -670,6 +650,12 @@
                         <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/70c8c019678502d88b430431e6e0bc7ac0c2e933/%D8%B5%D9%88%D8%B1%D8%A9%205.jpg" alt="زوين للكتب الهندسية" class="partner-logo">
                     </div>
                     <div class="partner-name" data-ar="زوين للكتب الهندسية" data-en="Zowin Engineering Books">زوين للكتب الهندسية</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo-wrap">
+                        <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/f0c026813395ee6edb5aca8df77ed751d8545fdb/%D8%B5%D9%88%D8%B1%D8%A9%207.jpg" alt="شركة QI" class="partner-logo">
+                    </div>
+                    <div class="partner-name" data-ar="شركة كي كارد (QI)" data-en="Qi Card Company">شركة كي كارد (QI)</div>
                 </div>
             </div>
         </div>
@@ -711,6 +697,32 @@
                     <i class="fa-solid fa-chevron-left"></i>
                 </div>
             </a>
+        </div>
+
+        <!-- Commercial / Ad Section (Moved to the bottom) -->
+        <div class="section-title">
+            <i class="fa-solid fa-briefcase"></i> <span id="sec-commercial">الإعلانات والتعاون التجاري</span>
+        </div>
+
+        <div class="ad-card">
+            <div class="ad-header">
+                <div class="ad-info">
+                    <div class="ad-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="ad-text">
+                        <h3 id="wa-title">مباشر واتساب للأعمال</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="ad-actions">
+                <a href="https://wa.me/9647835552957" target="_blank" class="btn-whatsapp">
+                    <i class="fa-solid fa-paper-plane"></i> <span id="btn-chat">مراسلة</span>
+                </a>
+                <button class="btn-copy" onclick="copyNumber('+9647835552957')">
+                    <i class="fa-regular fa-copy"></i> <span id="btn-copy-text">نسخ</span>
+                </button>
+            </div>
         </div>
 
         <!-- Footer -->
