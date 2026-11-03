@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>حسن فراس | Hassan Firas</title>
     <!-- خط Cairo من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,17 +43,17 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 20px 15px 40px 15px;
+            padding: 15px 12px 30px 12px;
             overflow-x: hidden;
         }
 
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 440px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 16px;
             position: relative;
         }
 
@@ -62,8 +62,7 @@
             width: 100%;
             display: flex;
             justify-content: flex-end;
-            height: 35px;
-            animation: fadeIn 0.8s ease forwards;
+            height: 32px;
         }
 
         html[dir="ltr"] .lang-switch-container {
@@ -74,14 +73,14 @@
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--border-color);
             color: var(--primary-accent);
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             backdrop-filter: blur(10px);
             transition: all 0.2s ease;
         }
@@ -89,7 +88,6 @@
         .lang-btn:hover {
             background: rgba(255, 222, 77, 0.15);
             border-color: var(--primary-accent);
-            transform: translateY(-2px);
         }
 
         /* Profile Section */
@@ -103,21 +101,19 @@
 
         .avatar-wrapper {
             position: relative;
-            margin-bottom: 16px;
-            animation: avatarEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            margin-bottom: 14px;
         }
 
         .avatar-ring {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             padding: 4px;
             background: linear-gradient(135deg, var(--primary-accent), #ff9900);
-            box-shadow: 0 0 25px rgba(255, 222, 77, 0.35);
+            box-shadow: 0 0 20px rgba(255, 222, 77, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: pulseGlow 3s infinite ease-in-out 1.2s;
         }
 
         .profile-img {
@@ -128,45 +124,35 @@
             object-position: center 20%;
             background-color: #1a1a1a;
             border: 2px solid var(--bg-color);
-            transition: transform 0.4s ease;
-        }
-
-        .avatar-wrapper:hover .profile-img {
-            transform: scale(1.05);
         }
 
         .verified-badge {
             position: absolute;
             bottom: 4px;
-            right: 8px;
-            left: auto;
-            transform: none !important;
+            right: 6px;
             background: var(--primary-accent);
             color: #000;
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 13px;
+            font-size: 12px;
             border: 2px solid var(--bg-color);
-            animation: badgePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s backwards;
         }
         
         html[dir="ltr"] .verified-badge {
             right: auto;
-            left: 8px;
+            left: 6px;
         }
 
         .name {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: #fff;
             margin-bottom: 6px;
             letter-spacing: -0.5px;
-            animation: fadeInUp 0.8s ease forwards 0.3s;
-            opacity: 0;
         }
 
         .badge-title {
@@ -176,53 +162,41 @@
             background: rgba(255, 222, 77, 0.1);
             border: 1px solid rgba(255, 222, 77, 0.3);
             color: var(--primary-accent);
-            padding: 6px 16px;
+            padding: 5px 14px;
             border-radius: 50px;
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             text-align: center;
-            animation: fadeInUp 0.8s ease forwards 0.45s;
-            opacity: 0;
         }
 
         .bio {
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 90%;
-            animation: fadeInUp 0.8s ease forwards 0.6s;
-            opacity: 0;
+            line-height: 1.5;
+            max-width: 95%;
         }
 
         /* Stats Section */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 10px;
             width: 100%;
-            animation: fadeInUp 0.8s ease forwards 0.75s;
-            opacity: 0;
         }
 
         .stat-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 16px 8px;
+            border-radius: 14px;
+            padding: 12px 6px;
             text-align: center;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-accent);
         }
 
         .stat-icon {
-            font-size: 1.2rem;
-            margin-bottom: 6px;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
         }
 
         .stat-icon.insta { color: var(--instagram-color); }
@@ -230,13 +204,13 @@
         .stat-icon.collab { color: var(--primary-accent); }
 
         .stat-number {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: #fff;
         }
 
         .stat-label {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
             margin-top: 2px;
         }
@@ -245,29 +219,25 @@
         .section-title {
             width: 100%;
             text-align: start;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--text-muted);
-            margin-top: 8px;
+            margin-top: 4px;
             display: flex;
             align-items: center;
             gap: 8px;
-            animation: fadeInUp 0.8s ease forwards 0.85s;
-            opacity: 0;
         }
 
         .section-title i {
             color: var(--primary-accent);
         }
 
-        /* Collaborations Slider Section */
+        /* Collaborations Slider Section (Loop Marquee) */
         .partners-section {
             width: 100%;
             overflow: hidden;
             position: relative;
-            padding: 10px 0;
-            animation: fadeInUp 0.8s ease forwards 0.9s;
-            opacity: 0;
+            padding: 8px 0;
         }
 
         .partners-section::before,
@@ -276,7 +246,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 40px;
+            width: 35px;
             z-index: 2;
             pointer-events: none;
         }
@@ -293,9 +263,9 @@
 
         .partners-track {
             display: flex;
-            gap: 15px;
+            gap: 14px;
             width: max-content;
-            animation: scrollPartners 25s linear infinite;
+            animation: scrollPartners 22s linear infinite;
         }
 
         .partners-track:hover {
@@ -308,24 +278,18 @@
             backdrop-filter: blur(12px);
             border-radius: 16px;
             padding: 14px;
-            width: 145px;
+            width: 150px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             gap: 10px;
-            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        .partner-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-accent);
-        }
-
-        /* تم تكبير حاوية اللوجو والأيقونة لتكون أوضح وأكبر */
+        /* تم تكبير حجم صور وحاوية التعاونات لتبدو واضحة وبارزة */
         .partner-logo-wrap {
-            width: 80px;
-            height: 80px;
+            width: 85px;
+            height: 85px;
             border-radius: 14px;
             background: #fff;
             padding: 5px;
@@ -358,7 +322,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(calc(-50% - 7.5px));
+                transform: translateX(calc(-50% - 7px));
             }
         }
 
@@ -367,14 +331,12 @@
             width: 100%;
             background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(22, 27, 34, 0.8));
             border: 1px solid rgba(37, 211, 102, 0.3);
-            border-radius: 20px;
-            padding: 20px;
+            border-radius: 16px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
             backdrop-filter: blur(12px);
-            animation: fadeInUp 0.8s ease forwards 0.95s;
-            opacity: 0;
         }
 
         .ad-header {
@@ -386,30 +348,30 @@
         .ad-info {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .ad-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             background: rgba(37, 211, 102, 0.2);
             color: var(--whatsapp-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
         .ad-text h3 {
-            font-size: 1rem;
+            font-size: 0.92rem;
             color: #fff;
             font-weight: 700;
             text-align: start;
         }
 
         .ad-text p {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #a0a0a0;
             direction: ltr;
             text-align: start;
@@ -417,7 +379,7 @@
 
         .ad-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-whatsapp {
@@ -425,19 +387,14 @@
             background: var(--whatsapp-color);
             color: #000;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 10px;
+            border-radius: 10px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: opacity 0.2s ease;
-        }
-
-        .btn-whatsapp:hover {
-            opacity: 0.9;
+            gap: 6px;
         }
 
         .btn-copy {
@@ -445,19 +402,14 @@
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            transition: background 0.2s ease;
-        }
-
-        .btn-copy:hover {
-            background: rgba(255, 255, 255, 0.15);
+            gap: 5px;
         }
 
         /* Links List */
@@ -465,46 +417,37 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            animation: fadeInUp 0.8s ease forwards 1.05s;
-            opacity: 0;
+            gap: 10px;
         }
 
         .link-item {
             width: 100%;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 16px 20px;
+            border-radius: 14px;
+            padding: 14px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             text-decoration: none;
             color: #fff;
             backdrop-filter: blur(12px);
-            transition: all 0.25s ease;
-        }
-
-        .link-item:hover {
-            transform: translateY(-2px);
-            border-color: var(--primary-accent);
-            background: rgba(30, 36, 46, 0.85);
         }
 
         .link-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
         .link-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             background: rgba(255, 255, 255, 0.05);
         }
 
@@ -512,21 +455,20 @@
         .link-icon.tiktok { color: var(--tiktok-color); }
 
         .link-title {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-align: start;
         }
 
         .link-handle {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
             text-align: start;
         }
 
         .link-arrow {
             color: var(--text-muted);
-            font-size: 0.85rem;
-            transition: transform 0.2s ease;
+            font-size: 0.8rem;
         }
 
         html[dir="rtl"] .link-arrow {
@@ -545,82 +487,25 @@
             transform: translateX(-50%);
             background: var(--primary-accent);
             color: #000;
-            padding: 10px 24px;
+            padding: 8px 20px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             box-shadow: 0 5px 20px rgba(0,0,0,0.5);
             transition: bottom 0.3s ease;
             z-index: 1000;
         }
 
         .toast.show {
-            bottom: 30px;
+            bottom: 25px;
         }
 
         /* Footer */
         footer {
-            margin-top: 15px;
-            font-size: 0.75rem;
+            margin-top: 10px;
+            font-size: 0.72rem;
             color: var(--text-muted);
             text-align: center;
-            animation: fadeIn 0.8s ease forwards 1.2s;
-            opacity: 0;
-        }
-
-        /* ==================== Keyframe Animations ==================== */
-        @keyframes avatarEntrance {
-            0% {
-                opacity: 0;
-                transform: scale(0.3) translateY(-40px);
-                filter: blur(10px);
-            }
-            60% {
-                opacity: 1;
-                transform: scale(1.08) translateY(5px);
-                filter: blur(0);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-                filter: blur(0);
-            }
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% {
-                box-shadow: 0 0 25px rgba(255, 222, 77, 0.35);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(255, 222, 77, 0.65);
-            }
-        }
-
-        @keyframes badgePop {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
     </style>
 </head>
@@ -704,7 +589,7 @@
             </div>
         </div>
 
-        <!-- Strategic Collaborations Section (Slider) -->
+        <!-- Strategic Collaborations Section (Slider Loop) -->
         <div class="section-title">
             <i class="fa-solid fa-handshake-angle"></i> <span id="sec-partners">التعاونات والشراكات الاستراتيجية</span>
         </div>
@@ -878,11 +763,9 @@
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             const t = translations[currentLang];
 
-            // Change Direction & Lang Attributes
             document.documentElement.setAttribute('lang', currentLang);
             document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
 
-            // Update Text Contents
             document.getElementById('lang-btn-text').innerText = t.langBtn;
             document.getElementById('name').innerText = t.name;
             document.getElementById('badge-text').innerText = t.badge;
@@ -901,7 +784,6 @@
             document.getElementById('footer').innerText = t.footer;
             document.getElementById('toast').innerText = t.toastMsg;
 
-            // Update partner card names based on language
             const partnerNames = document.querySelectorAll('.partner-name');
             partnerNames.forEach(el => {
                 el.innerText = el.getAttribute(`data-${currentLang}`);
