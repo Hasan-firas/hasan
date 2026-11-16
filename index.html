@@ -520,7 +520,59 @@
             color: var(--text-muted);
             text-align: center;
         }
-    </style>
+    /* Restored earlier dark profile design */
+:root{--bg-color:#08151c;--card-bg:rgba(14,34,43,.82);--border-color:rgba(121,213,203,.16);--primary-accent:#73dfcb;--text-main:#eef8f5;--text-muted:#92a9ad;--whatsapp-color:#35d39a}
+body{padding:22px 18px 50px;background-color:#07141b;background-image:radial-gradient(ellipse at 17% 12%,rgba(36,141,139,.17),transparent 38%),radial-gradient(ellipse at 86% 72%,rgba(38,107,145,.12),transparent 40%),linear-gradient(145deg,#07141b,#0a2028 58%,#07151b);color:var(--text-main)}
+.container{max-width:1080px;gap:22px}.lang-btn{color:#b7f3e5;border-color:rgba(115,223,203,.25);background:rgba(14,39,46,.8)}.profile-card{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto 1fr;align-items:center;justify-items:start;text-align:start;min-height:420px;padding:38px 42px;border:1px solid rgba(147,224,214,.16);border-radius:27px;background:linear-gradient(125deg,rgba(14,39,47,.96),rgba(8,24,32,.91));box-shadow:0 25px 70px rgba(0,0,0,.26);direction:ltr;position:relative;overflow:hidden}.profile-card:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(71,211,190,.09),transparent 53%);pointer-events:none}.device-art{grid-column:1;grid-row:1/5;position:relative;width:100%;height:365px;display:grid;place-items:center;perspective:1000px;isolation:isolate}.scene-glow{position:absolute;width:70%;height:52%;border-radius:50%;background:rgba(58,211,189,.17);filter:blur(65px)}.scene-ring{position:absolute;width:100%;height:65%;border:1px solid rgba(125,225,211,.17);border-radius:50%;transform:rotate(-25deg);animation:spin 28s linear infinite}.scene-ring-two{width:84%;height:53%;border-style:dashed;opacity:.6;animation-direction:reverse}.monitor-svg{width:min(460px,112%);height:auto;position:relative;z-index:2;filter:drop-shadow(0 25px 25px rgba(0,0,0,.32));animation:softFloat 7s ease-in-out infinite;transform:perspective(1000px) rotateY(-8deg)}.svg-ecg{stroke-dasharray:720;stroke-dashoffset:720;animation:ecg 2.7s linear infinite;filter:drop-shadow(0 0 4px rgba(117,255,192,.7))}.device-label{position:absolute;z-index:3;display:flex;gap:8px;align-items:center;padding:9px 12px;border:1px solid rgba(157,225,216,.16);border-radius:10px;background:rgba(9,30,37,.88);color:#c5dfda;font-size:8px;font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.2)}.device-label i{color:#75dfca}.device-a{right:-2%;top:17%}.device-b{left:-2%;bottom:15%}.hero-kicker{grid-column:2;grid-row:1;display:flex;align-items:center;gap:9px;color:#94b4b1;font-size:9px;font-weight:800;letter-spacing:1px;margin-bottom:13px}.kicker-dot{width:6px;height:6px;border-radius:50%;background:#76e5ce;box-shadow:0 0 10px #76e5ce}.avatar-wrapper{grid-column:2;grid-row:2;margin:0 0 13px}.avatar-ring{width:62px;height:62px;padding:2px;background:linear-gradient(135deg,#73dfcb,#578fb0);box-shadow:0 0 0 5px rgba(115,223,203,.07)}.name{grid-column:2;grid-row:3;font-size:clamp(2.1rem,4vw,3.4rem);line-height:1.2;margin:0 0 12px;color:#f4faf7}.badge-title{grid-column:2;grid-row:4;align-self:start;background:rgba(115,223,203,.1);border-color:rgba(115,223,203,.24);color:#98efdd;margin:0 0 13px}.bio{grid-column:2;grid-row:5;font-size:.9rem;line-height:1.9;color:#a7bec0;max-width:440px}
+.stats-grid{gap:12px}.stat-card,.partner-card,.link-item{background:linear-gradient(145deg,rgba(15,40,48,.92),rgba(9,26,34,.93));border-color:rgba(137,210,202,.14);box-shadow:0 8px 24px rgba(0,0,0,.14)}.stat-card{padding:15px 8px;border-radius:16px}.stat-number{color:#f2faf7}.stat-label{color:#9ab0b2}.stat-icon.collab,.section-title i{color:#73dfcb}.section-title{color:#a7babc;font-size:.9rem}.section-title i{margin-inline-end:4px}.partners-section{padding:7px 0 13px}.partner-card{border-radius:16px}.partner-logo-wrap{background:#fff}.link-item{border-radius:15px}.link-title{color:#edf7f3}.link-handle{color:#91a9ac}.ad-card{background:linear-gradient(135deg,rgba(34,122,95,.15),rgba(11,32,40,.92));border-color:rgba(54,209,154,.25)}.toast{background:#73dfcb;color:#08201d}
+.expertise-intro{color:#9aafb1;font-size:.82rem;line-height:1.8;margin:-8px 0 15px}.expertise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.expertise-card{padding:17px;border:1px solid rgba(139,211,202,.14);border-radius:15px;background:linear-gradient(145deg,rgba(16,43,51,.9),rgba(9,27,35,.93));min-height:160px;transition:transform .25s,border-color .25s}.expertise-card:hover{transform:translateY(-3px);border-color:rgba(115,223,203,.4)}.expertise-icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;color:#79dfcc;background:rgba(115,223,203,.1)}.expertise-card h3{margin:11px 0 4px;font-size:.84rem;color:#eff9f6}.expertise-card p{margin:0;font-size:.72rem;line-height:1.8;color:#9bb3b4}
+@keyframes ecg{to{stroke-dashoffset:0}}@keyframes softFloat{0%,100%{translate:0 0}50%{translate:0 -8px}}@keyframes spin{to{rotate:360deg}}
+@media(max-width:760px){body{padding:15px 13px 36px}.container{gap:16px}.profile-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:18px 20px 24px;min-height:unset;border-radius:23px;direction:rtl}.device-art{order:-1;height:300px;width:100%;margin-bottom:5px}.monitor-svg{width:min(390px,106%)}.device-a{top:12%;right:0}.device-b{bottom:11%;left:0;font-size:7px}.hero-kicker{order:0;font-size:7px;margin:0 0 12px}.avatar-wrapper{order:1;margin-bottom:10px}.avatar-ring{width:54px;height:54px}.name{order:2;font-size:1.7rem;margin-bottom:10px}.badge-title{order:3;font-size:.69rem;margin-bottom:10px}.bio{order:4;font-size:.82rem;line-height:1.8}.expertise-grid{gap:8px}.expertise-card{min-height:165px;padding:13px}.expertise-card h3{font-size:.75rem}.expertise-card p{font-size:.65rem}.stats-grid{gap:7px}.stat-card{padding:12px 4px}.stat-label{font-size:.58rem}.partners-track{gap:11px}.partner-card{width:140px}.partner-logo-wrap{width:78px;height:78px}}
+@media(max-width:390px){.device-art{height:265px}.expertise-grid{grid-template-columns:1fr}.expertise-card{min-height:135px}}
+@media(prefers-reduced-motion:reduce){.monitor-svg,.scene-ring,.svg-ecg{animation:none!important}}
+/* Previous patient-monitor silhouette */
+.device-art{transform:translate3d(0,var(--y,0),0) rotateY(var(--r,0deg));transition:none}.monitor-unit{position:relative;z-index:2;width:min(455px,98%);height:325px;padding:15px 16px 17px;border:1px solid rgba(225,251,244,.3);border-radius:23px;background:linear-gradient(145deg,#536d71 0%,#243c43 13%,#10252d 58%,#0b1c24 100%);box-shadow:0 32px 65px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.23),inset 0 -5px 15px rgba(0,0,0,.45);transform:perspective(1000px) rotateY(-9deg) rotateX(2deg);animation:oldDeviceFloat 6s ease-in-out infinite}.monitor-top{height:25px;display:flex;justify-content:space-between;align-items:center;padding:0 4px 7px;color:#a9c6c0;font:800 8px Arial,sans-serif;letter-spacing:1.6px}.monitor-brand{font-size:10px;color:#e5f2ed}.monitor-brand span{color:#73dfcb}.monitor-live{font-size:7px;color:#82edc5;letter-spacing:1px}.monitor-live i{font-size:5px;margin-inline-end:4px;animation:deviceBlink 1.4s infinite}.monitor-screen{position:relative;height:220px;padding:13px 14px;border:1px solid rgba(112,231,194,.25);border-radius:10px;background:linear-gradient(145deg,#071619,#0b2528 62%,#07191d);box-shadow:inset 0 3px 19px rgba(0,0,0,.8),0 0 22px rgba(57,215,181,.055);overflow:hidden}.screen-meta{display:flex;justify-content:space-between;align-items:center;color:#80aaa0;font:700 8px Arial,sans-serif;letter-spacing:1px}.screen-meta>span:last-child{font-size:26px;color:#91ffd3;text-shadow:0 0 12px rgba(117,255,209,.22)}.screen-meta small{font-size:7px;color:#76a79a}.ecg{width:100%;height:105px;margin-top:8px;overflow:visible}.ecg-grid{fill:none;stroke:rgba(110,231,196,.12);stroke-width:.7}.ecg-line{fill:none;stroke:#7cffc1;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:620;stroke-dashoffset:620;filter:drop-shadow(0 0 4px rgba(117,255,192,.72));animation:oldEcg 2.8s linear infinite}.screen-foot{display:flex;justify-content:space-between;padding-top:8px;border-top:1px solid rgba(120,219,192,.16);color:#78a39b;font:700 7px Arial,sans-serif;letter-spacing:.5px}.screen-foot b{display:inline-block;margin-inline-start:3px;color:#d3fff0;font:500 16px Arial,sans-serif}.screen-foot small{font-size:7px;color:#81aaa0}.monitor-controls{height:43px;display:flex;align-items:center;gap:9px;padding:7px 4px}.control-knob{width:22px;height:22px;border:3px solid #788e8b;border-radius:50%;background:radial-gradient(circle,#39565a 0 34%,#13272e 38% 67%,#607d7b 71%);box-shadow:0 2px 5px #061319}.control-key{width:23px;height:9px;border:1px solid #718986;border-radius:3px;background:linear-gradient(#405b5e,#1d353b)}.control-speaker{margin-inline-start:auto;color:#526b6c;font:8px Arial,sans-serif;letter-spacing:2px}.monitor-stand{position:absolute;z-index:-1;left:42%;bottom:-32px;width:42px;height:36px;background:linear-gradient(90deg,#1c3036,#8da09c 30%,#283c42 70%,#13262d);clip-path:polygon(21% 0,79% 0,100% 100%,0 100%)}.monitor-base{position:absolute;left:31%;bottom:-37px;width:38%;height:8px;border-radius:50%;background:linear-gradient(#879a94,#263b40 60%,#0a1c22);box-shadow:0 8px 14px rgba(0,0,0,.38)}.device-label{z-index:4}.device-a{top:14%;right:-3%}.device-b{bottom:12%;left:-3%}.device-code{display:none}
+@keyframes oldEcg{to{stroke-dashoffset:0}}@keyframes oldDeviceFloat{0%,100%{translate:0 0}50%{translate:0 -8px}}@keyframes deviceBlink{50%{opacity:.25}}
+@media(max-width:760px){.device-art{height:300px}.monitor-unit{width:min(390px,96%);height:270px;padding:12px 12px 14px}.monitor-screen{height:177px;padding:10px}.screen-meta>span:last-child{font-size:22px}.ecg{height:78px;margin-top:6px}.screen-foot{padding-top:6px}.screen-foot b{font-size:13px}.monitor-controls{height:35px;padding-top:5px}.control-knob{width:18px;height:18px}.control-key{width:18px;height:7px}.device-a{top:9%;right:-1%}.device-b{bottom:8%;left:-1%}}
+@media(prefers-reduced-motion:reduce){.monitor-unit,.ecg-line{animation:none!important}}
+.profile-card .hero-kicker,.profile-card .name,.profile-card .badge-title,.profile-card .bio{direction:rtl;text-align:right}.profile-card .hero-kicker,.profile-card .avatar-wrapper,.profile-card .name,.profile-card .badge-title,.profile-card .bio{position:relative;z-index:1}
+@media(max-width:760px){.profile-card .hero-kicker{order:-1;text-align:center}.profile-card .device-art{order:0}.profile-card .avatar-wrapper{order:1}.profile-card .name{order:2;text-align:center}.profile-card .badge-title{order:3}.profile-card .bio{order:4;text-align:center}}
+.avatar-wrapper{margin-bottom:18px}.avatar-ring{width:104px;height:104px;padding:3px;box-shadow:0 0 0 7px rgba(115,223,203,.1),0 12px 30px rgba(0,0,0,.28)}.profile-img{width:100%;height:100%;object-fit:cover;object-position:center 20%;border-radius:50%}.verified-badge{width:24px;height:24px;font-size:11px}
+@media(max-width:760px){.avatar-wrapper{margin-bottom:12px}.avatar-ring{width:82px;height:82px;padding:2px;box-shadow:0 0 0 5px rgba(115,223,203,.1)}}
+.profile-card .badge-title{grid-column:2;justify-self:center;align-self:center;text-align:center;margin-inline:auto}
+.expertise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.expertise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:390px){.expertise-grid{grid-template-columns:1fr}}
+/* Desktop profile alignment: keep the monitor and profile in separate lanes */
+.container{width:min(1080px,calc(100vw - 48px));max-width:1080px;align-items:stretch}
+.profile-card{width:100%;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto auto auto auto;align-content:center;align-items:center;justify-items:stretch;column-gap:36px;row-gap:10px;min-height:430px;padding:34px 38px}
+.profile-card .device-art{grid-column:1;grid-row:1/6;min-width:0;width:100%;height:365px;justify-self:stretch}
+.profile-card .hero-kicker{grid-column:2;grid-row:1;justify-self:end;margin:0 0 4px;text-align:right}
+.profile-card .avatar-wrapper{grid-column:2;grid-row:2;justify-self:end;margin:0}
+.profile-card .name{grid-column:2;grid-row:3;justify-self:stretch;margin:0;text-align:right;font-size:clamp(2.2rem,4vw,3.25rem);line-height:1.18}
+.profile-card .badge-title{grid-column:2;grid-row:4;justify-self:center;align-self:center;margin:3px auto;text-align:center;white-space:normal}
+.profile-card .bio{grid-column:2;grid-row:5;justify-self:stretch;margin:2px 0 0;text-align:right;max-width:100%;line-height:1.85}
+.device-a{top:8%;right:4%}.device-b{bottom:8%;left:4%}
+@media(max-width:900px){.profile-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:25px 24px;min-height:0;text-align:center;direction:rtl}.profile-card .device-art{order:0;height:340px;max-width:520px;margin:0 auto 3px}.profile-card .hero-kicker{order:-1;margin:0 0 4px;text-align:center}.profile-card .avatar-wrapper{order:1;margin:0}.profile-card .name{order:2;text-align:center;margin:0}.profile-card .badge-title{order:3;align-self:center;margin:0 auto;text-align:center}.profile-card .bio{order:4;text-align:center;margin:0;max-width:620px}}
+@media(max-width:760px){.container{width:calc(100vw - 26px)}.profile-card{gap:9px;padding:16px 18px 22px}.profile-card .device-art{height:300px}.profile-card .name{font-size:1.7rem}}
+.profile-card .badge-title{justify-self:end;align-self:center;width:max-content;max-width:100%;margin:2px 0;padding:5px 12px;font-size:.72rem;line-height:1.55;letter-spacing:0;text-align:right}
+@media(max-width:900px){.profile-card .badge-title{align-self:center;margin:0 auto;text-align:center}}
+.profile-card .badge-title{font-size:.78rem;padding:6px 13px}
+@media(max-width:760px){.profile-card .badge-title{font-size:.72rem;padding:5px 11px}}
+.expertise-intro{margin:6px 0 15px}
+.expertise-grid{margin-top:20px}
+/* Warm yellow accent sampled to echo the portrait background */
+:root{--primary-accent:#f5c542;--border-color:rgba(245,197,66,.22)}
+body{background-image:radial-gradient(ellipse at 17% 12%,rgba(193,145,35,.14),transparent 38%),radial-gradient(ellipse at 86% 72%,rgba(88,82,47,.1),transparent 40%),linear-gradient(145deg,#07141b,#171f25 58%,#10171b)}
+.lang-btn{color:#f8dc88;border-color:rgba(245,197,66,.3)}.lang-btn:hover{background:rgba(245,197,66,.12);border-color:#f5c542}
+.kicker-dot{background:#f5c542;box-shadow:0 0 11px rgba(245,197,66,.8)}.hero-kicker{color:#e7ca7a}.avatar-ring{background:linear-gradient(135deg,#ffe27a,#edb82f);box-shadow:0 0 0 7px rgba(245,197,66,.12),0 12px 30px rgba(0,0,0,.28)}.verified-badge{background:#f5c542;color:#101820}
+.badge-title{background:rgba(245,197,66,.1);border-color:rgba(245,197,66,.34);color:#f7d879}.badge-title i{color:#f5c542}.section-title i,.expertise-icon{color:#f5c542}.expertise-icon{background:rgba(245,197,66,.11);border:1px solid rgba(245,197,66,.16)}.expertise-card:hover{border-color:rgba(245,197,66,.38)}
+.scene-glow{background:rgba(219,173,58,.13)}.scene-ring{border-color:rgba(245,197,66,.15)}.scene-ring:before{background:#f5c542;box-shadow:0 0 16px 4px rgba(245,197,66,.42)}.monitor-live{color:#f8d978}.monitor-live i{color:#f5c542}.monitor-brand span{color:#f5c542}.ecg-line{stroke:#f7d365;filter:drop-shadow(0 0 4px rgba(255,211,89,.72))}.screen-meta>span:last-child{color:#ffdc78;text-shadow:0 0 12px rgba(255,210,91,.22)}.screen-foot b{color:#ffe59b}.device-label{border-color:rgba(245,197,66,.2)}.device-label i{color:#f5c542}
+.stat-icon.collab{color:#f5c542}.toast{background:#f5c542;color:#171c1e}.float-chip i{color:#f5c542}.caption-dot{background:#f5c542;box-shadow:0 0 9px #f5c542}
+.expertise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:900px){.expertise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:390px){.expertise-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -535,7 +587,17 @@
 
         <!-- Profile Section -->
         <div class="profile-card">
-            <div class="avatar-wrapper">
+            <div class="hero-kicker"><span class="kicker-dot"></span><span>BIOMEDICAL ENGINEERING</span></div>
+            <div class="device-art" aria-label="Medical patient monitor"><div class="scene-glow"></div><div class="scene-ring"></div><div class="scene-ring scene-ring-two"></div><div class="monitor-unit">
+ <div class="monitor-top"><span class="monitor-brand">MED<span>CORE</span></span><span class="monitor-live"><i class="fa-solid fa-circle"></i> LIVE</span></div>
+ <div class="monitor-screen"><div class="screen-meta"><span>ECG · LEAD II</span><span>72 <small>BPM</small></span></div>
+  <svg class="ecg" viewBox="0 0 440 100" preserveAspectRatio="none" aria-hidden="true"><path class="ecg-grid" d="M0 20H440M0 50H440M0 80H440M55 0V100M110 0V100M165 0V100M220 0V100M275 0V100M330 0V100M385 0V100"/><path class="ecg-line" d="M0 52H75L90 49L101 52H123L136 57L149 48L163 52H178L190 52L200 17L211 87L223 36L234 52H278L291 49L302 52H324L337 58L350 47L364 52H379L391 52L401 18L412 86L424 36L435 52H450"/></svg>
+  <div class="screen-foot"><span>SpO₂ <b>98</b><small>%</small></span><span>RESP <b>16</b><small>/min</small></span><span>TEMP <b>36.8</b><small>°C</small></span></div>
+ </div>
+ <div class="monitor-controls"><span class="control-knob"></span><span class="control-key"></span><span class="control-key"></span><span class="control-key"></span><span class="control-key"></span><span class="control-speaker">•••••••</span></div>
+ <div class="monitor-stand"></div><div class="monitor-base"></div>
+</div><div class="device-label device-b"><i class="fa-solid fa-wave-square"></i><span>Biomedical engineering</span></div></div>
+<div class="avatar-wrapper">
                 <div class="avatar-ring">
                     <img src="https://raw.githubusercontent.com/Hasan-firas/hasan/01feaff920786e694c66829b62327d84643171dd/aa.JPEG" alt="حسن فراس" class="profile-img">
                 </div>
@@ -544,19 +606,28 @@
                 </div>
             </div>
             
-            <h1 class="name" id="name">حسن فراس | HaSaN FiRaS</h1>
+            <h1 class="name" id="name">حسن فراس</h1>
             
             <div class="badge-title">
                 <i class="fa-solid fa-microscope"></i>
-                <span id="badge-text">مهندس أجهزة طبية | صانع محتوى تعليمي</span>
+                <span id="badge-text">مهندس أجهزة طبية | صانع محتوى</span>
             </div>
 
             <p class="bio" id="bio">
-                مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.
+                مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية وخبراتي في المجال، بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.
             </p>
         </div>
 
+
+        <section class="expertise-section" id="expertise">
+            <div class="section-title"><i class="fa-solid fa-briefcase-medical"></i> <span data-lang-ar="الخبرات والمسارات المهنية" data-lang-en="Professional experience">الخبرات والمسارات المهنية</span></div>
+            <div class="expertise-grid">
+                <article class="expertise-card"><div class="expertise-icon"><i class="fa-solid fa-chalkboard-user"></i></div><h3 data-lang-ar="ورش تدريبية في مجال الأجهزة الطبية والقطاع الخاص بمجال الهندسة الطبية" data-lang-en="Workshops on medical devices and the private healthcare sector in biomedical engineering">ورش تدريبية في مجال الأجهزة الطبية والقطاع الخاص بمجال الهندسة الطبية</h3><p data-lang-ar="تقديم الورش والدورات التدريبية التي تستهدف المهندسين حديثي التخرج والطلاب، لتعريفهم بالأجهزة الطبية والقطاع الخاص ودور المهندس الطبي في هذا المجال." data-lang-en="Training workshops for recent engineering graduates and students, introducing medical devices, the private sector, and the role of biomedical engineers within it.">تقديم الورش والدورات التدريبية التي تستهدف المهندسين حديثي التخرج والطلاب، لتعريفهم بالأجهزة الطبية والقطاع الخاص ودور المهندس الطبي في هذا المجال.</p></article>
+                <article class="expertise-card"><div class="expertise-icon"><i class="fa-solid fa-tower-broadcast"></i></div><h3 data-lang-ar="ظهور إعلامي تلفزيوني" data-lang-en="Television appearances">ظهور إعلامي تلفزيوني</h3><p data-lang-ar="مشاركات في قنوات تلفزيونية للحديث عن الأجهزة الطبية والقطاع الصحي." data-lang-en="Television features discussing medical devices and healthcare.">مشاركات في قنوات تلفزيونية للحديث عن الأجهزة الطبية والقطاع الصحي.</p></article>                <article class="expertise-card"><div class="expertise-icon"><i class="fa-solid fa-pen-nib"></i></div><h3 data-lang-ar="صناعة المحتوى الهندسي" data-lang-en="Engineering content creation">صناعة المحتوى الهندسي</h3><p data-lang-ar="صناعة محتوى هندسي على مدى ثلاث سنوات، لتقديم معلومات مهمة لطلبة الهندسة وحديثي التخرج عن الأجهزة الطبية، وتسليط الضوء على أحدث التقنيات وتطورات الشركات والقطاعات الأهلية." data-lang-en="Three years creating engineering content to share useful information about medical devices with engineering students and recent graduates, highlight new technologies, and cover developments across private companies and sectors.">صناعة محتوى هندسي على مدى ثلاث سنوات، لتقديم معلومات مهمة لطلبة الهندسة وحديثي التخرج عن الأجهزة الطبية، وتسليط الضوء على أحدث التقنيات وتطورات الشركات والقطاعات الأهلية.</p></article>                <article class="expertise-card"><div class="expertise-icon"><i class="fa-solid fa-comments"></i></div><h3 data-lang-ar="ندوات وجلسات حوارية" data-lang-en="Seminars & discussion sessions">ندوات وجلسات حوارية</h3><p data-lang-ar="تقديم ندوات وجلسات حوارية حول هندسة الأجهزة الطبية، للتعريف بالمجال وواقع وجود هذا التخصص وفرصه في العراق." data-lang-en="Leading seminars and discussion sessions on medical device engineering, introducing the field and its presence and opportunities in Iraq.">تقديم ندوات وجلسات حوارية حول هندسة الأجهزة الطبية، للتعريف بالمجال وواقع وجود هذا التخصص وفرصه في العراق.</p></article>
+            </div>
+        </section>
         <!-- Stats Section -->
+        <div class="section-title stats-section-title"><i class="fa-solid fa-chart-line"></i> <span data-lang-ar="الأثر الرقمي والتعاونات" data-lang-en="Digital reach & collaborations">الأثر الرقمي والتعاونات</span></div>
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-icon insta"><i class="fa-brands fa-instagram"></i></div>
@@ -741,9 +812,9 @@
         const translations = {
             ar: {
                 langBtn: "English",
-                name: "حسن فراس | HaSaN FiRaS",
-                badge: "مهندس أجهزة طبية | صانع محتوى تعليمي",
-                bio: "مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.",
+                name: "حسن فراس",
+                badge: "مهندس أجهزة طبية | صانع محتوى",
+                bio: "مرحباً بكم في صفحتي الرسمية. أشارك معكم شغفي في الأجهزة الطبية والتقنية وخبراتي في المجال، بالإضافة إلى تغطية أحدث الشراكات والتعاونات التجارية.",
                 statInsta: "زيارات الإنستغرام",
                 statTiktok: "زيارات التيك توك",
                 statCollab: "تعاونات تجارية",
@@ -760,9 +831,9 @@
             },
             en: {
                 langBtn: "عربي",
-                name: "HaSaN FiRaS | حسن فراس",
-                badge: "Medical instrumentation engineer | Educational Creator",
-                bio: "Welcome to my official page. Sharing my passion for Medical instrumentation, technology, and covering commercial partnerships.",
+                name: "HaSaN FiRaS",
+                badge: "Medical instrumentation engineer | Content Creator",
+                bio: "Welcome to my official page. I share my passion for medical instrumentation and technology, my experience in the field, and updates on recent partnerships and commercial collaborations.",
                 statInsta: "Instagram Visits",
                 statTiktok: "TikTok Visits",
                 statCollab: "Brand Collaborations",
@@ -808,6 +879,7 @@
             partnerNames.forEach(el => {
                 el.innerText = el.getAttribute(`data-${currentLang}`);
             });
+            document.querySelectorAll("[data-lang-ar]").forEach(el => { el.textContent = el.getAttribute("data-lang-" + currentLang); });
         }
 
         function copyNumber(text) {
@@ -819,6 +891,40 @@
                 }, 2000);
             });
         }
-    </script>
+    (()=>{const scene=document.querySelector('.device-art');if(!scene||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let frame=0,target=0,current=0;const move=()=>{target=scrollY;if(frame)return;const draw=()=>{current+=(target-current)*.1;scene.style.setProperty('--y',`${Math.sin(current/400)*8}px`);scene.style.setProperty('--r',`${Math.sin(current/650)*2.5}deg`);if(Math.abs(target-current)>.5)frame=requestAnimationFrame(draw);else frame=0};frame=requestAnimationFrame(draw)};addEventListener('scroll',move,{passive:true});addEventListener('resize',move,{passive:true});scene.addEventListener('pointermove',e=>{if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;const r=scene.getBoundingClientRect();scene.style.setProperty('--r',`${((e.clientX-r.left)/r.width-.5)*4}deg`)});move()})();
+let uiAudioContext;function playSoftButtonSound(){try{const AudioCtor=window.AudioContext||window.webkitAudioContext;if(!AudioCtor)return;if(!uiAudioContext)uiAudioContext=new AudioCtor();if(uiAudioContext.state==='suspended')uiAudioContext.resume();const now=uiAudioContext.currentTime;const tone=uiAudioContext.createOscillator();const volume=uiAudioContext.createGain();tone.type='sine';tone.frequency.setValueAtTime(680,now);tone.frequency.exponentialRampToValueAtTime(520,now+.045);volume.gain.setValueAtTime(.0001,now);volume.gain.exponentialRampToValueAtTime(.022,now+.006);volume.gain.exponentialRampToValueAtTime(.0001,now+.06);tone.connect(volume);volume.connect(uiAudioContext.destination);tone.start(now);tone.stop(now+.065)}catch(_){}}
+document.addEventListener('click',event=>{if(event.target.closest('button,a'))playSoftButtonSound()});
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
